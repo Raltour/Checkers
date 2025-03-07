@@ -10,7 +10,13 @@
 #include "StateMachine.h"
 
 class GameState {
-	StateMachine  stateMachine();
+	static StateMachine _state_machine();
 
+	virtual void update(int x, int y);
 
+	virtual void render();
+
+	virtual void enter();
+
+	virtual void exit();
 };

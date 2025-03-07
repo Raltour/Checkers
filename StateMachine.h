@@ -14,7 +14,7 @@
 
 class StateMachine{
 public:
-	std::map<std::string, GameState> gameStates;
+	std::map<std::string, GameState> _gameStates;
 
 	StateMachine() {
 
@@ -25,6 +25,6 @@ public:
 
 	void render();
 
-	void changeState(std::string to);
+	void changeStateTo(std::string to);
 
 }
