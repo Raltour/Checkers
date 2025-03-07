@@ -10,13 +10,18 @@
 #include "StateMachine.h"
 
 class GameState {
+public:
+	virtual void update(int x, int y) = 0;
+
+	virtual void render() = 0;
+
+	virtual void enter() = 0;
+
+	virtual void exit() = 0;
+
+
+
+protected:
+
 	static StateMachine _state_machine();
-
-	virtual void update(int x, int y);
-
-	virtual void render();
-
-	virtual void enter();
-
-	virtual void exit();
 };

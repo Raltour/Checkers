@@ -12,14 +12,12 @@
 #include <map>
 #include "GameState.h"
 
-class StateMachine{
+class StateMachine {
 public:
-	std::map<std::string, GameState> _gameStates;
 
 	StateMachine() {
 
 	}
-
 
 	void update(int x, int y);
 
@@ -27,4 +25,8 @@ public:
 
 	void changeStateTo(std::string to);
 
-}
+
+private:
+
+	std::map<std::string, GameState> _gameStates;
+};
