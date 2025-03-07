@@ -26,10 +26,13 @@
     <ClInclude Include="GameState.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="StartMenu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
-      <Filter>头文件</Filter>
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
