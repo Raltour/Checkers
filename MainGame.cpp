@@ -7,8 +7,16 @@
 
 #include "StateMachine.h"
 
-int main() {
+void gameLoop() {
+	StateMachine mach;
+	while (true) {
+		mach.update(0, 0);
+		mach.render();
+	}
+}
 
+int main() {
+	gameLoop();
 
 	return 0;
 }

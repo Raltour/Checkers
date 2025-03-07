@@ -11,6 +11,12 @@
 
 class GameState {
 public:
+
+	GameState(StateMachine& mach)
+		:_mach(mach) {}
+
+	virtual ~GameState();
+
 	virtual void update(int x, int y) = 0;
 
 	virtual void render() = 0;
@@ -23,5 +29,10 @@ public:
 
 protected:
 
-	static StateMachine _state_machine();
+	/*
+	* 在构造函数中对这个引用进行初始化，
+	* 这样所有的GameState都可以操作在MainGame中定义的唯一一个状态机实例，
+	* 避免后续游戏控制发生混乱
+	*/
+	StateMachine& _mach;
 };

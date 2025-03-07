@@ -16,8 +16,10 @@ class StateMachine {
 public:
 
 	StateMachine() {
-
+		GameState gs(&this);
 	}
+
+	~StateMachine();
 
 	void update(int x, int y);
 
