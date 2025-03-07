@@ -7,7 +7,8 @@
  * @version 1.0
  */
 
-#include "StateMachine.h"
+class StateMachine;
+class StartMenu;
 
 class GameState {
 public:
@@ -25,7 +26,7 @@ public:
 		:_mach(mach) {}
 
 
-	virtual ~GameState();
+	virtual ~GameState() = 0;
 
 
 	/**

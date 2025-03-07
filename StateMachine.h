@@ -26,7 +26,7 @@ public:
 		:_self_ref(*this), _curr("StarMenu") {}
 
 
-	~StateMachine();
+	~StateMachine() {}
 
 
 	/**
