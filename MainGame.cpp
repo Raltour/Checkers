@@ -11,6 +11,14 @@
 
 #include "StateMachine.h"
 
+
+ /**
+  * @brief 游戏循环
+  *
+  * 全局仅在此处初始化唯一的StateMachine实例
+  *
+  * @author 李明泽
+  */
 void gameLoop() {
 	StateMachine mach;
 	while (true) {
@@ -24,3 +32,25 @@ int main() {
 
 	return 0;
 }
+
+
+//文件注释规范
+/**
+ * @file MyClass.cpp
+ * @brief 该文件实现了 MyClass 类的功能。
+ * @author 张三
+ * @version 1.0
+ */
+
+
+ //函数注释规范
+/**
+ * @brief 函数功能的简要描述
+ *
+ * 详细描述函数的功能、参数、返回值等信息。
+ *
+ * @param 参数1 描述参数1的作用
+ * @param 参数2 描述参数2的作用
+ * @return 返回值的描述
+ * @author 作者名字
+ */
