@@ -7,6 +7,10 @@
  * @version 1.0
  */
 
+#include "StateMachine.h"
+
 class GameState {
+	StateMachine  stateMachine();
+
 
 };

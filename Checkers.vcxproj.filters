@@ -27,4 +27,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

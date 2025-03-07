@@ -133,6 +133,9 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="StateMachine.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainGame.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
