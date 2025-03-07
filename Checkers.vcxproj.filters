@@ -19,4 +19,12 @@
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StateMachine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
