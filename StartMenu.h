@@ -18,10 +18,7 @@ public:
 
 
 	/**
-	 * @brief 构造GameState
-	 *
-	 * 将对StateMachine的引用记录为成员变量，
-	 * 确保了全局只使用唯一的一个mach
+	 * @brief 利用输入信息更新游戏状态
 	 *
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 李明泽
