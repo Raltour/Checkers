@@ -12,6 +12,11 @@
 class GameState {
 public:
 
+	/*
+	* 通过在构造GameState时，
+	* 将对StateMachine的引用记录为成员变量的方式，
+	* 确保了全局只使用唯一的一个mach
+	*/
 	GameState(StateMachine& mach)
 		:_mach(mach) {}
 
