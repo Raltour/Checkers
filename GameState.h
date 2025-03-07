@@ -37,7 +37,7 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 李明泽
 	 */
-	virtual void update(int x, int y) = 0;
+	virtual void update() = 0;
 
 
 	/**
@@ -50,8 +50,8 @@ public:
 	/**
 	 * @brief 进入该状态
 	 * 
-	 * 初始化，
-	 渲染界面
+	 * 初始化
+	 * 渲染界面
 	 * 
 	 * @author 李明泽
 	 */
