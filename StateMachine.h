@@ -23,7 +23,11 @@ public:
 	* 记录对自身的引用
 	*/
 	StateMachine()
-		:_self_ref(*this), _curr("StarMenu") {}
+		:_self_ref(*this), _curr("StarMenu") {
+		GameState start_menu();
+		start_menu = StartMenu();
+		_game_states["StarMenu"] = start_menu;
+	}
 
 
 	~StateMachine() {}
@@ -36,7 +40,7 @@ public:
 	 * @author 李明泽
 	 */
 	void update() {
-		_gameStates[_curr].update();
+		_game_states[_curr].update();
 	}
 
 
@@ -45,7 +49,7 @@ public:
 	 * @author 李明泽
 	 */
 	void render() {
-		_gameStates[_curr].render();
+		_game_states[_curr].render();
 	}
 
 
@@ -60,15 +64,15 @@ public:
 	 * @author 李明泽
 	 */
 	void changeStateTo(std::string to) {
-		_gameStates[_curr].exit();
+		_game_states[_curr].exit();
 		_curr = to;
-		_gameStates[_curr].enter();
+		_game_states[_curr].enter();
 	}
 
 
 private:
 
 	std::string _curr;//记录游戏当前状态
-	std::map<std::string, GameState> _gameStates;//将字符串名称映射为对应的GameState
+	std::map<std::string, GameState> _game_states;//将字符串名称映射为对应的GameState
 	StateMachine& _self_ref;//对自身的引用，构建GameState时作为参数传入
 };
