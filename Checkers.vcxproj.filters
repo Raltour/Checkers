@@ -32,9 +32,30 @@
     <ClInclude Include="Player.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Chess.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInput.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Chess.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Render.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
