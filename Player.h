@@ -8,7 +8,7 @@
  * 利用不同Players之间的循环，实现轮流控制棋子行走的功能
  * 
  * @author 李明泽
- * @version 1.4
+ * @version 1.5
  */
 
 #include "Chess.h"
@@ -16,6 +16,7 @@
 
 class Player {
 public:
+
 	/**
 	 * @brief 函数功能的简要描述
 	 *
@@ -60,6 +61,37 @@ public:
 	static void addNewPlayer(std::string color, std::string name) {
 		Player* p = new Player(color, name);
 		p->storeNewPlayer();
+	}
+
+
+	/**
+	 * @brief 函数功能的简要描述
+	 *
+	 * 详细描述函数的功能、参数、返回值等信息。
+	 *
+	 * @param 参数1 描述参数1的作用
+	 * @param 参数2 描述参数2的作用
+	 * @return 返回值的描述
+	 * @author 
+	 */
+	bool chessMatchPlayer(Chess& chess);
+
+
+	/**
+	 * @brief 函数功能的简要描述
+	 *
+	 * 详细描述函数的功能、参数、返回值等信息。
+	 *
+	 * @param 参数1 描述参数1的作用
+	 * @param 参数2 描述参数2的作用
+	 * @return 返回值的描述
+	 * @author 李明泽
+	 */
+	bool isWin(bool b) {
+		if (b) {
+			this->moveToWinner();
+		}
+		turnToNextPlayer();
 	}
 
 
@@ -113,21 +145,6 @@ private:
 	 */
 	void turnToNextPlayer() {
 		
-	}
-
-
-	/**
-	 * @brief 函数功能的简要描述
-	 *
-	 * 详细描述函数的功能、参数、返回值等信息。
-	 *
-	 * @param 参数1 描述参数1的作用
-	 * @param 参数2 描述参数2的作用
-	 * @return 返回值的描述
-	 * @author 作者名字
-	 */
-	bool isWin() {
-
 	}
 
 

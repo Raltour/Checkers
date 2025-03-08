@@ -1,22 +1,21 @@
 #pragma once
 
 /**
- * @file PlayerNumber.h
- * @brief 填入各个玩家的姓名，随后生成玩家
- * @author 李明泽
+ * @file WinView.h
+ * @brief 胜利结算画面
+ * @author 
  * @version 1.5
  */
 
 #include "StateMachine.h"
 #include "GameState.h"
 #include "Render.h"
-#include "Player.h"
-#include <vector>
 
-class PlayerInfo : public GameState {
+
+class WinView : public GameState {
 public:
 
-	PlayerInfo(StateMachine& _self_ref)
+	WinView(StateMachine& _self_ref)
 		:GameState(_self_ref) {
 	}
 
@@ -27,7 +26,7 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author
 	 */
-	virtual void update(ExMessage &msg) {}
+	virtual void update(ExMessage& msg) {}
 
 
 	/**
@@ -45,7 +44,7 @@ public:
 	 * @author
 	 */
 	virtual void enter() {
-		
+
 	}
 
 
@@ -54,12 +53,9 @@ public:
 	 *
 	 * 利用私有的字符串成员变量，依次生成对应的这些玩家
 	 *
-	 * @author 李明泽
+	 * @author 
 	 */
 	virtual void exit() {
-		for (int i = 0; i < _num_of_players; i++) {
-			Player::addNewPlayer(colors[i], names[i]);
-		}
 		cleardevice();
 	}
 

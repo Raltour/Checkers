@@ -4,20 +4,21 @@
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
  * @author 张三
- * @version 1.4
+ * @version 1.5
  */
 
 #include "Chess.h"
 #include "Player.h"
+#include <easyx.h>
 
 class Board {
 public:
 
 	Board(){}
 
-	bool chessMatchPlayer();
+	bool isHereAChess(ExMessage& msg, Chess &chess);
 
-	void moveChess();
+	bool moveChess(Chess &chess);//返回值：该玩家有没有取得胜利
 
 private:
 

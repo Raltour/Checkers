@@ -7,7 +7,7 @@
  * 
  * 该文件是状态机，用于控制游戏流程，在不同的界面、状态之间切换。
  * 
- * @version 1.4
+ * @version 1.5
  */
 
 #include <string>
@@ -17,6 +17,8 @@
 #include "PlayerNum.h"
 #include "PlayerInfo.h"
 #include "CheckersGame.h"
+#include "WinView.h"
+#include <easyx.h>
 
 class StateMachine {
 public:
@@ -36,7 +38,8 @@ public:
 		_game_states["PlayerMenu"] = &player_info;
 		CheckersGame checkers_game(_self_ref);
 		_game_states["PlayerMenu"] = &checkers_game;
-
+		WinView win_view(_self_ref);
+		_game_states["WinView"] = &win_view;
 	}
 
 
@@ -49,8 +52,8 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 李明泽
 	 */
-	void update() {
-		_game_states[_curr]->update();
+	void update(ExMessage &msg) {
+		_game_states[_curr]->update(msg);
 	}
 
 

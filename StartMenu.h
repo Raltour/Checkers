@@ -2,13 +2,14 @@
 
 /**
  * @file StartMenu.h
- * @author 李明泽
+ * @author 
  * @brief 游戏开始时的菜单界面
- * @version 1.4
+ * @version 1.5
  */
 
 #include "StateMachine.h"
 #include "GameState.h"
+#include "Render.h"
 
 
 class StartMenu : public GameState {
@@ -23,7 +24,7 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 
 	 */
-	virtual void update() {}
+	virtual void update(ExMessage &msg) {}
 
 
 	/**

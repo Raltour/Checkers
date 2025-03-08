@@ -6,10 +6,11 @@
  * 这里初始化了状态机的实例mach，并且在其内部保存对自身的引用，
  * 并将该引用传给所有的GameState，以便随时对其进行操作
  * 
- * @version 1.4
+ * @version 1.5
  */
 
 #include "StateMachine.h"
+#include <easyx.h>
 
 
  /**
@@ -21,8 +22,10 @@
   */
 void gameLoop() {
 	StateMachine mach;
+	ExMessage meg;
 	while (true) {
-		mach.update();
+		peekmessage(&meg);
+		mach.update(meg);
 		mach.render();
 	}
 }

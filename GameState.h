@@ -4,7 +4,7 @@
  * @file GameState.h
  * @author 李明泽
  * @brief 定义了游戏的不同状态所具备的共有接口，供状态机使用。
- * @version 1.4
+ * @version 1.5
  */
 
 class StateMachine;
@@ -32,7 +32,7 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 李明泽
 	 */
-	virtual void update() = 0;
+	virtual void update(ExMessage &msg) = 0;
 
 
 	/**
