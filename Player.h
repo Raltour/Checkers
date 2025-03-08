@@ -8,7 +8,7 @@
  * 利用不同Players之间的循环，实现轮流控制棋子行走的功能
  * 
  * @author 李明泽
- * @version 1.1
+ * @version 1.2
  */
 
 class Player {
