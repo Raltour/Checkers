@@ -74,7 +74,7 @@ public:
 	 * @return ·µ»ØÖµµÄÃèÊö
 	 * @author 
 	 */
-	bool chessMatchPlayer(Chess& chess);
+	bool chessMatchPlayer(Chess* chess);
 
 
 	/**
