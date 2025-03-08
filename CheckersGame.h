@@ -4,7 +4,7 @@
  * @file CheckersGame.h
  * @brief 几个玩家轮流走棋，进行游戏
  * @author 李明泽
- * @version 1.6
+ * @version 1.7
  */
 
 #include "StateMachine.h"

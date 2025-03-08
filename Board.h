@@ -4,7 +4,7 @@
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
  * @author 张三
- * @version 1.6
+ * @version 1.7
  */
 
 #include "Chess.h"
@@ -62,6 +62,6 @@ private:
 	 * @return 玩家是否胜利
 	 * @author 作者名字
 	 */
-	bool isChessWin(std::string color)
+	bool isChessWin(std::string color)；
 };
 

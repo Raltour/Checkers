@@ -4,7 +4,7 @@
  * @file Render.h
  * @brief 绘制游戏中的各种图形
  * @author 张三
- * @version 1.6
+ * @version 1.7
  */
 
 #include <easyx.h>
