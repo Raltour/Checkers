@@ -9,12 +9,14 @@
 
 #include "StateMachine.h"
 #include "GameState.h"
+#include "Board.h"
 
 class CheckersGame : public GameState {
 public:
 
 	CheckersGame(StateMachine& _self_ref)
-		:GameState(_self_ref) {
+		:GameState(_self_ref), _chess_board() {
+
 	}
 
 
@@ -54,4 +56,8 @@ public:
 	 * @author
 	 */
 	virtual void exit() {}
+
+private:
+
+	Board _chess_board;
 };

@@ -48,10 +48,16 @@ public:
 	/**
 	 * @brief 退出当前状态
 	 *
-	 * 记录、修改必要的数据
+	 * 把选好的玩家的数量传给PlayerInfo状态
 	 * 清空界面
 	 *
-	 * @author 
+	 * @author 李明泽
 	 */
-	virtual void exit() {}
+	virtual void exit() {
+		
+	}
+
+private:
+
+	int _num_of_players;
 };
