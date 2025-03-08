@@ -10,7 +10,7 @@
  * 直接在该文件中实现所有功能
  * 
  * @author 李明泽
- * @version 1.6
+ * @version 1.7
  */
 
 #include "Chess.h"
@@ -26,7 +26,8 @@ public:
 	 * @author 作者名字
 	 */
 	static Player& getCurrentPlayer() {
-		return;
+		Player p("1", "3");//为了过编译瞎写的
+		return p;
 	}
 
 

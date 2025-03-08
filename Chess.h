@@ -4,7 +4,7 @@
  * @file Chess.h
  * @brief 棋盘中的棋子
  * @author 张三
- * @version 1.6
+ * @version 1.7
  */
 
 #include <string>

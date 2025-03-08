@@ -4,7 +4,7 @@
  * @file CheckersGame.h
  * @brief 几个玩家轮流走棋，进行游戏
  * @author 李明泽
- * @version 1.6
+ * @version 1.7
  */
 
 #include "StateMachine.h"
@@ -71,7 +71,7 @@ public:
 private:
 
 	//对游戏棋盘的引用
-	Board &_chess_board;
+	Board _chess_board;
 
 	//由于目标棋子会不断变化，不能设为引用，1采用指针
 	Chess* _chess;
