@@ -138,7 +138,6 @@
     <ClInclude Include="Render.h" />
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="StateMachine.h" />
-    <ClInclude Include="UserInput.h" />
     <ClInclude Include="WinView.h" />
   </ItemGroup>
   <ItemGroup>

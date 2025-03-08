@@ -4,7 +4,7 @@
  * @file StartMenu.h
  * @author 
  * @brief 游戏开始时的菜单界面
- * @version 1.5
+ * @version 1.6
  */
 
 #include "StateMachine.h"
