@@ -131,10 +131,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="CheckersGame.h" />
     <ClInclude Include="Chess.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerInfo.h" />
+    <ClInclude Include="PlayerNum.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="StateMachine.h" />

@@ -41,13 +41,16 @@
     <ClInclude Include="Render.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="UserInput.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerInfo.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="WinView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerNum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckersGame.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
