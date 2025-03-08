@@ -4,17 +4,19 @@
  * @file CheckersGame.h
  * @brief 填入各个玩家的姓名，随后生成玩家
  * @author 李明泽
- * @version 1.3
+ * @version 1.4
  */
 
 #include "StateMachine.h"
 #include "GameState.h"
+#include "Board.h"
 
 class CheckersGame : public GameState {
 public:
 
 	CheckersGame(StateMachine& _self_ref)
-		:GameState(_self_ref) {
+		:GameState(_self_ref), _chess_board() {
+
 	}
 
 
@@ -54,4 +56,8 @@ public:
 	 * @author
 	 */
 	virtual void exit() {}
+
+private:
+
+	Board _chess_board;
 };

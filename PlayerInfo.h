@@ -4,11 +4,14 @@
  * @file PlayerNumber.h
  * @brief 填入各个玩家的姓名，随后生成玩家
  * @author 李明泽
- * @version 1.3
+ * @version 1.4
  */
 
 #include "StateMachine.h"
 #include "GameState.h"
+#include "Render.h"
+#include "Player.h"
+#include <vector>
 
 class PlayerInfo : public GameState {
 public:
@@ -37,21 +40,32 @@ public:
 	/**
 	 * @brief 进入该状态
 	 *
-	 * 初始化
-	 * 渲染界面
+	 * 初始化玩家数量
 	 *
 	 * @author
 	 */
-	virtual void enter() {}
+	virtual void enter() {
+		
+	}
 
 
 	/**
-	 * @brief 退出当前状态
+	 * @brief 退出时生成给定数量的玩家
 	 *
-	 * 记录、修改必要的数据
-	 * 清空界面
+	 * 利用私有的字符串成员变量，依次生成对应的这些玩家
 	 *
-	 * @author
+	 * @author 李明泽
 	 */
-	virtual void exit() {}
+	virtual void exit() {
+		for (int i = 0; i < _num_of_players; i++) {
+			Player::addNewPlayer(colors[i], names[i]);
+		}
+		cleardevice();
+	}
+
+private:
+
+	std::vector<std::string> names;
+	std::vector<std::string> colors;
+
 };

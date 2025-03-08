@@ -4,7 +4,7 @@
  * @file GameState.h
  * @author 李明泽
  * @brief 定义了游戏的不同状态所具备的共有接口，供状态机使用。
- * @version 1.3
+ * @version 1.4
  */
 
 class StateMachine;
@@ -73,4 +73,7 @@ protected:
 	* 进而操作在MainGame中定义的唯一一个状态机实例，避免后续游戏控制发生混乱
 	*/
 	StateMachine& _mach;
+
+	//储存玩家数量，在PlayerNum中确定具体值，所有状态均可访问这个值
+	static int _num_of_players;
 };
