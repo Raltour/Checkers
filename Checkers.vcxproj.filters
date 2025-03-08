@@ -44,6 +44,12 @@
     <ClInclude Include="UserInput.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WinView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainGame.cpp">
