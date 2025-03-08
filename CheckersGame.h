@@ -15,9 +15,6 @@
 class CheckersGame : public GameState {
 public:
 
-	Chess _chess;
-	
-
 	CheckersGame(StateMachine& _self_ref)
 		:GameState(_self_ref), _chess_board() {
 
@@ -32,9 +29,18 @@ public:
 	 */
 	virtual void update(ExMessage &msg) {
 		if (msg.message == WM_LBUTTONDOWN) {
-			if (_chess_board.isHereAChess(msg, _chess)) {//点击的位置是个棋子
+
+			//点击的位置是个棋子，且与玩家对应
+			if (_chess_board.isHereAChess(msg, _chess) && Player::getCurrentPlayer().chessMatchPlayer(_chess)) {
+				Player::getCurrentPlayer().isWin(_chess_board.moveChess(_chess));
+
+				if (Player::isGameOver()) {
+					_mach.changeStateTo("WinView");
+				}
 
 			}
+
+
 		}
 	}
 
@@ -70,4 +76,5 @@ public:
 private:
 
 	Board _chess_board;
+	Chess _chess;
 };

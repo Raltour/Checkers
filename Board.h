@@ -16,11 +16,9 @@ public:
 
 	Board(){}
 
-	bool chessMatchPlayer();
+	bool isHereAChess(ExMessage& msg, Chess &chess);
 
-	bool isHereAChess(ExMessage& msg, Chess &_chess);
-
-	void moveChess();
+	bool moveChess(Chess &chess);//返回值：该玩家有没有取得胜利
 
 private:
 
