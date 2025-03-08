@@ -58,12 +58,14 @@ public:
 	 */
 	virtual void exit() {
 		for (int i = 0; i < _num_of_players; i++) {
-			Player::addNewPlayer("yellow", "haha");
+			Player::addNewPlayer(colors[i], names[i]);
 		}
 		cleardevice();
 	}
 
 private:
 
+	std::vector<std::string> names;
+	std::vector<std::string> colors;
 
 };

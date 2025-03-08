@@ -74,5 +74,6 @@ protected:
 	*/
 	StateMachine& _mach;
 
+	//储存玩家数量，在PlayerNum中确定具体值，所有状态均可访问这个值
 	static int _num_of_players;
 };
