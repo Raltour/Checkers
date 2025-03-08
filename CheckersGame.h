@@ -10,9 +10,13 @@
 #include "StateMachine.h"
 #include "GameState.h"
 #include "Board.h"
+#include "Player.h"
 
 class CheckersGame : public GameState {
 public:
+
+	Chess _chess;
+	
 
 	CheckersGame(StateMachine& _self_ref)
 		:GameState(_self_ref), _chess_board() {
@@ -24,9 +28,15 @@ public:
 	 * @brief 利用输入信息更新游戏状态
 	 *
 	 * @param 鼠标所点击的位置或者键盘的输入字符
-	 * @author
+	 * @author 李明泽
 	 */
-	virtual void update() {}
+	virtual void update(ExMessage &msg) {
+		if (msg.message == WM_LBUTTONDOWN) {
+			if (_chess_board.isHereAChess(msg, _chess)) {//点击的位置是个棋子
+
+			}
+		}
+	}
 
 
 	/**

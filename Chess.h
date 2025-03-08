@@ -12,6 +12,9 @@
 class Chess
 {
 public:
+
+	Chess();
+
 	std::string _color;
 	bool _is_picked;
 

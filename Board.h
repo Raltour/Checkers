@@ -9,6 +9,7 @@
 
 #include "Chess.h"
 #include "Player.h"
+#include <easyx.h>
 
 class Board {
 public:
@@ -16,6 +17,8 @@ public:
 	Board(){}
 
 	bool chessMatchPlayer();
+
+	bool isHereAChess(ExMessage& msg, Chess &_chess);
 
 	void moveChess();
 
