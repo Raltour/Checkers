@@ -2,9 +2,9 @@
 
 /**
  * @file Chess.h
- * @brief 棋盘中的棋子，可以移动
+ * @brief 棋盘中的棋子
  * @author 张三
- * @version 1.5
+ * @version 1.6
  */
 
 #include <string>
@@ -15,11 +15,10 @@ public:
 
 	Chess();
 
-	std::string _color;
-	bool _is_picked;
+	int _x, _y;//棋子的坐标
 
-private:
-
+	std::string _color;//棋子的颜色
+	bool _is_picked;//棋子是否已被选中
 
 
 };

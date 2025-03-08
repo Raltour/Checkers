@@ -4,7 +4,7 @@
  * @file PlayerNumber.h
  * @brief 填入各个玩家的姓名，随后生成玩家
  * @author 李明泽
- * @version 1.5
+ * @version 1.6
  */
 
 #include "StateMachine.h"
@@ -39,9 +39,6 @@ public:
 
 	/**
 	 * @brief 进入该状态
-	 *
-	 * 初始化玩家数量
-	 *
 	 * @author
 	 */
 	virtual void enter() {

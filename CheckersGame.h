@@ -2,9 +2,9 @@
 
 /**
  * @file CheckersGame.h
- * @brief 填入各个玩家的姓名，随后生成玩家
+ * @brief 几个玩家轮流走棋，进行游戏
  * @author 李明泽
- * @version 1.5
+ * @version 1.6
  */
 
 #include "StateMachine.h"
@@ -16,9 +16,7 @@ class CheckersGame : public GameState {
 public:
 
 	CheckersGame(StateMachine& _self_ref)
-		:GameState(_self_ref), _chess_board() {
-
-	}
+		:GameState(_self_ref), _chess_board() {}
 
 
 	/**
@@ -31,7 +29,8 @@ public:
 		if (msg.message == WM_LBUTTONDOWN) {
 
 			//点击的位置是个棋子，且与玩家对应
-			if (_chess_board.isHereAChess(msg, _chess) && Player::getCurrentPlayer().chessMatchPlayer(_chess)) {
+			if ((_chess = _chess_board.isHereAChess(msg)) && Player::getCurrentPlayer().chessMatchPlayer(_chess)) {
+
 				Player::getCurrentPlayer().isWin(_chess_board.moveChess(_chess));
 
 				if (Player::isGameOver()) {
@@ -65,16 +64,15 @@ public:
 
 	/**
 	 * @brief 退出当前状态
-	 *
-	 * 记录、修改必要的数据
-	 * 清空界面
-	 *
 	 * @author
 	 */
 	virtual void exit() {}
 
 private:
 
-	Board _chess_board;
-	Chess _chess;
+	//对游戏棋盘的引用
+	Board &_chess_board;
+
+	//由于目标棋子会不断变化，不能设为引用，1采用指针
+	Chess* _chess;
 };

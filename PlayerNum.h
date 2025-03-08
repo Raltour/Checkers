@@ -4,7 +4,7 @@
  * @file PlayerNum.h
  * @brief 用户选择参与游戏的人数，支持2、4、6人
  * @author 李明泽
- * @version 1.4
+ * @version 1.6
  */
 
 #include "StateMachine.h"
@@ -48,11 +48,7 @@ public:
 
 	/**
 	 * @brief 退出当前状态
-	 *
-	 * 把选好的玩家的数量传给PlayerInfo状态
-	 * 清空界面
-	 *
-	 * @author 李明泽
+	 * @author 
 	 */
 	virtual void exit() {
 		cleardevice();

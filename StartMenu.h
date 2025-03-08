@@ -4,7 +4,7 @@
  * @file StartMenu.h
  * @author 
  * @brief 游戏开始时的菜单界面
- * @version 1.5
+ * @version 1.6
  */
 
 #include "StateMachine.h"
@@ -47,11 +47,7 @@ public:
 
 	/**
 	 * @brief 退出当前状态
-	 *
-	 * 记录、修改必要的数据
-	 * 清空界面
-	 *
-	 * @author 
+	 * @author
 	 */
 	virtual void exit() {}
 };

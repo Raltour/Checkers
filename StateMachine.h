@@ -7,7 +7,7 @@
  * 
  * 该文件是状态机，用于控制游戏流程，在不同的界面、状态之间切换。
  * 
- * @version 1.5
+ * @version 1.6
  */
 
 #include <string>
@@ -82,12 +82,6 @@ public:
 		_game_states[_curr]->enter();
 	}
 
-
-	//GameState& getState(std::string str) {
-	//	return *_game_states[str];
-	//}
-
-	int parameter;
 
 private:
 
