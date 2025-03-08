@@ -47,11 +47,7 @@ public:
 
 	/**
 	 * @brief 退出当前状态
-	 *
-	 * 记录、修改必要的数据
-	 * 清空界面
-	 *
-	 * @author 
+	 * @author
 	 */
 	virtual void exit() {}
 };

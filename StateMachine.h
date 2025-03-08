@@ -83,12 +83,6 @@ public:
 	}
 
 
-	//GameState& getState(std::string str) {
-	//	return *_game_states[str];
-	//}
-
-	int parameter;
-
 private:
 
 	std::string _curr;//记录游戏当前状态

@@ -4,3 +4,5 @@
  * @author уехЩ
  * @version 1.6
  */
+
+#include <easyx.h>
