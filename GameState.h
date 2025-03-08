@@ -7,6 +7,7 @@
  * @version 1.7
  */
 
+#include <easyx.h>
 class StateMachine;
 
 class GameState {

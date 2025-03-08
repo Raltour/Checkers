@@ -8,12 +8,16 @@
 #include "Board.h"
 
 
-
-Chess* isHereAChess(ExMessage& msg) {
+Chess* Board::isHereAChess(ExMessage& msg) {
 	return NULL;
 }
 
 
-bool moveChess(Chess* chess) {
+bool Board::moveChess(Chess* chess) {
+	return false;
+}
+
+
+bool Board::isChessWin(std::string color) {
 	return false;
 }

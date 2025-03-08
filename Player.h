@@ -26,7 +26,8 @@ public:
 	 * @author 作者名字
 	 */
 	static Player& getCurrentPlayer() {
-		return &Player("1", "2");
+		Player p("1", "3");//为了过编译瞎写的
+		return p;
 	}
 
 

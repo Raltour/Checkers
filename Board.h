@@ -15,7 +15,11 @@
 class Board {
 public:
 
-	Board(){}
+	Board(){
+		_width = 1;
+		_height = 1;
+		_sell_size = 1;
+	}
 
 
 	/**
@@ -62,6 +66,6 @@ private:
 	 * @return 玩家是否胜利
 	 * @author 作者名字
 	 */
-	bool isChessWin(std::string color)；
+	bool isChessWin(std::string color);
 };
 
