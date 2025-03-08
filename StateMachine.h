@@ -7,13 +7,16 @@
  * 
  * 该文件是状态机，用于控制游戏流程，在不同的界面、状态之间切换。
  * 
- * @version 1.2
+ * @version 1.3
  */
 
 #include <string>
 #include <map>
 #include "GameState.h"
 #include "StartMenu.h"
+#include "PlayerNum.h"
+#include "PlayerInfo.h"
+#include "CheckersGame.h"
 
 class StateMachine {
 public:
@@ -27,6 +30,13 @@ public:
 		:_self_ref(*this), _curr("StarMenu") {
 		StartMenu start_menu(_self_ref);
 		_game_states["StarMenu"] = &start_menu;
+		PlayerNum player_num(_self_ref);
+		_game_states["PlayerMenu"] = &player_num;
+		PlayerInfo player_info(_self_ref);
+		_game_states["PlayerMenu"] = &player_info;
+		CheckersGame checkers_game(_self_ref);
+		_game_states["PlayerMenu"] = &checkers_game;
+
 	}
 
 
