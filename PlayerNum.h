@@ -9,6 +9,7 @@
 
 #include "StateMachine.h"
 #include "GameState.h"
+#include "Render.h"
 
 class PlayerNum : public GameState {
 public:
@@ -54,10 +55,8 @@ public:
 	 * @author ÀîÃ÷Ôó
 	 */
 	virtual void exit() {
-		
+		cleardevice();
 	}
 
-private:
 
-	int _num_of_players;
 };

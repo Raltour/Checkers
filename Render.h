@@ -7,6 +7,7 @@
  * @version 1.3
  */
 
+#include <easyx.h>
 
  /*
      功能: 绘制六边形网格

@@ -73,4 +73,6 @@ protected:
 	* 进而操作在MainGame中定义的唯一一个状态机实例，避免后续游戏控制发生混乱
 	*/
 	StateMachine& _mach;
+
+	static int _num_of_players;
 };

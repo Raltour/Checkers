@@ -37,12 +37,13 @@ public:
 	/**
 	 * @brief 进入该状态
 	 *
-	 * 初始化
-	 * 渲染界面
+	 * 初始化玩家数量
 	 *
 	 * @author
 	 */
-	virtual void enter() {}
+	virtual void enter() {
+		
+	}
 
 
 	/**
@@ -54,4 +55,7 @@ public:
 	 * @author
 	 */
 	virtual void exit() {}
+
+
+
 };

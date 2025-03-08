@@ -80,9 +80,17 @@ public:
 	}
 
 
+	//GameState& getState(std::string str) {
+	//	return *_game_states[str];
+	//}
+
+	int parameter;
+
 private:
 
 	std::string _curr;//记录游戏当前状态
 	std::map<std::string, GameState*> _game_states;//将字符串名称映射为对应的GameState
 	StateMachine& _self_ref;//对自身的引用，构建GameState时作为参数传入
+
+
 };
