@@ -42,14 +42,33 @@ public:
 	 * @author 作者名字
 	 */
 	static bool isGameOver() {
+		deleteAllPlayers();
 		return false;
 	}
+
+
+	static void addNewPlayer(std::string color, std::string name) {
+		Player* p = new Player(color, name);
+		p->storeNewPlayer();
+	}
+
 
 private:
 	//构建静态玩家双端队列、静态胜者栈
 
-	std::string _color;
 
+
+	Player(std::string color, std::string name)
+		:_color(color), _name(name) {}
+
+	std::string _color;
+	std::string _name;
+
+
+	void storeNewPlayer();
+
+
+	static void deleteAllPlayers();
 
 
 	/**

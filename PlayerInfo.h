@@ -9,6 +9,9 @@
 
 #include "StateMachine.h"
 #include "GameState.h"
+#include "Render.h"
+#include "Player.h"
+#include <vector>
 
 class PlayerInfo : public GameState {
 public:
@@ -47,15 +50,20 @@ public:
 
 
 	/**
-	 * @brief 退出当前状态
+	 * @brief 退出时生成给定数量的玩家
 	 *
-	 * 记录、修改必要的数据
-	 * 清空界面
+	 * 利用私有的字符串成员变量，依次生成对应的这些玩家
 	 *
-	 * @author
+	 * @author 李明泽
 	 */
-	virtual void exit() {}
+	virtual void exit() {
+		for (int i = 0; i < _num_of_players; i++) {
+			Player::addNewPlayer("yellow", "haha");
+		}
+		cleardevice();
+	}
 
+private:
 
 
 };
