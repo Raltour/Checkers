@@ -1,20 +1,21 @@
 #pragma once
 
 /**
- * @file StartMenu.h
- * @author 李明泽
- * @brief 游戏开始时的菜单界面
- * @version 1.3
+ * @file PlayerNumber.h
+ * @brief 用户选择参与游戏的人数，支持2、4、6人
+ * @author 张三
+ * @version 1.0
  */
 
 #include "StateMachine.h"
 #include "GameState.h"
 
-
-class StartMenu : public GameState {
+class PlayerNumber : public GameState {
 public:
-	StartMenu(StateMachine& _self_ref)
-		:GameState(_self_ref) {}
+
+	PlayerNumber(StateMachine& _self_ref)
+		:GameState(_self_ref) {
+	}
 
 
 	/**
