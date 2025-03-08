@@ -14,7 +14,7 @@
 #include <map>
 #include "GameState.h"
 #include "StartMenu.h"
-#include "PlayerNumber.h"
+#include "PlayerNum.h"
 
 class StateMachine {
 public:
@@ -28,7 +28,7 @@ public:
 		:_self_ref(*this), _curr("StarMenu") {
 		StartMenu start_menu(_self_ref);
 		_game_states["StarMenu"] = &start_menu;
-		PlayerNumber player_number(_self_ref);
+		PlayerNum player_number(_self_ref);
 	}
 
 

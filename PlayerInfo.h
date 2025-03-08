@@ -2,18 +2,18 @@
 
 /**
  * @file PlayerNumber.h
- * @brief 用户选择参与游戏的人数，支持2、4、6人
- * @author 张三
- * @version 1.0
+ * @brief 填入各个玩家的姓名，随后生成玩家
+ * @author 李明泽
+ * @version 1.3
  */
 
 #include "StateMachine.h"
 #include "GameState.h"
 
-class PlayerNumber : public GameState {
+class PlayerInfo : public GameState {
 public:
 
-	PlayerNumber(StateMachine& _self_ref)
+	PlayerInfo(StateMachine& _self_ref)
 		:GameState(_self_ref) {
 	}
 
@@ -22,14 +22,14 @@ public:
 	 * @brief 利用输入信息更新游戏状态
 	 *
 	 * @param 鼠标所点击的位置或者键盘的输入字符
-	 * @author 
+	 * @author
 	 */
 	virtual void update() {}
 
 
 	/**
 	 * @brief 游戏渲染
-	 * @author 
+	 * @author
 	 */
 	virtual void render() {}
 
@@ -40,7 +40,7 @@ public:
 	 * 初始化
 	 * 渲染界面
 	 *
-	 * @author 
+	 * @author
 	 */
 	virtual void enter() {}
 
@@ -51,7 +51,7 @@ public:
 	 * 记录、修改必要的数据
 	 * 清空界面
 	 *
-	 * @author 
+	 * @author
 	 */
 	virtual void exit() {}
 };
