@@ -8,7 +8,7 @@
  * 利用不同Players之间的循环，实现轮流控制棋子行走的功能
  * 
  * @author 李明泽
- * @version 1.3
+ * @version 1.4
  */
 
 #include "Chess.h"
