@@ -48,12 +48,20 @@ private:
 	int _height;
 	int _sell_size;
 
-	//构建存储棋子的容器
+	//构建存储棋子的容器，可能需要玩家数量等信息，可以用CheckersGame传参进构造函数
 
 
 
 
-
+	/**
+	 * @brief 判断移动完成后有没有胜利
+	 * 
+	 * 棋盘上的颜色分布是固定的，算出棋子应该去的位置
+	 *
+	 * @param 需要判断的棋子的颜色
+	 * @return 玩家是否胜利
+	 * @author 作者名字
+	 */
 	bool isChessWin(std::string color)
 };
 
