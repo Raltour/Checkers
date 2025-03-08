@@ -10,6 +10,7 @@
  */
 
 #include "StateMachine.h"
+#include <easyx.h>
 
 
  /**
@@ -21,8 +22,10 @@
   */
 void gameLoop() {
 	StateMachine mach;
+	ExMessage meg;
 	while (true) {
-		mach.update();
+		peekmessage(&meg);
+		mach.update(meg);
 		mach.render();
 	}
 }

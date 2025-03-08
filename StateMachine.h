@@ -17,6 +17,7 @@
 #include "PlayerNum.h"
 #include "PlayerInfo.h"
 #include "CheckersGame.h"
+#include <easyx.h>
 
 class StateMachine {
 public:
@@ -49,8 +50,8 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 李明泽
 	 */
-	void update() {
-		_game_states[_curr]->update();
+	void update(ExMessage &msg) {
+		_game_states[_curr]->update(msg);
 	}
 
 

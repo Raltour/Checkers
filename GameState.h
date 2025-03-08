@@ -32,7 +32,7 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 李明泽
 	 */
-	virtual void update() = 0;
+	virtual void update(ExMessage &msg) = 0;
 
 
 	/**

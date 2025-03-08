@@ -6,3 +6,7 @@
  * @author 张三
  * @version 1.5
  */
+
+#include <easyx.h>
+
+//这个文件可能用不上了
