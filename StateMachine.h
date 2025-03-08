@@ -17,6 +17,7 @@
 #include "PlayerNum.h"
 #include "PlayerInfo.h"
 #include "CheckersGame.h"
+#include "WinView.h"
 #include <easyx.h>
 
 class StateMachine {
@@ -37,7 +38,8 @@ public:
 		_game_states["PlayerMenu"] = &player_info;
 		CheckersGame checkers_game(_self_ref);
 		_game_states["PlayerMenu"] = &checkers_game;
-
+		WinView win_view(_self_ref);
+		_game_states["WinView"] = &win_view;
 	}
 
 

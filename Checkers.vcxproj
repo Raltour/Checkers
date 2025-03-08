@@ -134,6 +134,7 @@
     <ClInclude Include="Chess.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerInfo.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="StateMachine.h" />

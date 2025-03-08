@@ -25,7 +25,7 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 
 	 */
-	virtual void update() {}
+	virtual void update(ExMessage &msg) {}
 
 
 	/**
