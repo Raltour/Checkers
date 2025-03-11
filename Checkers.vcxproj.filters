@@ -67,9 +67,6 @@
     <ClCompile Include="Render.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="StateMachine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

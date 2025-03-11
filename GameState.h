@@ -23,7 +23,8 @@ public:
 	 * @param 对mach的引用
 	 * @author 李明泽
 	 */
-	GameState(StateMachine& mach);
+	GameState(StateMachine& mach) 
+		:_mach(mach) {}
 
 
 	/**
