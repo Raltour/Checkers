@@ -144,9 +144,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="CheckersGame.cpp" />
     <ClCompile Include="Chess.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="PlayerInfo.cpp" />
+    <ClCompile Include="PlayerNum.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="StartMenu.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
+    <ClCompile Include="WinView.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,7 +4,7 @@
  * @file PlayerNum.h
  * @brief 用户选择参与游戏的人数，支持2、4、6人
  * @author 李明泽
- * @version 1.7
+ * @version 1.8
  */
 
 #include "StateMachine.h"
@@ -53,6 +53,5 @@ public:
 	virtual void exit() {
 		cleardevice();
 	}
-
 
 };

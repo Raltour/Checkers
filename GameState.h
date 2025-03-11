@@ -4,10 +4,11 @@
  * @file GameState.h
  * @author 李明泽
  * @brief 定义了游戏的不同状态所具备的共有接口，供状态机使用。
- * @version 1.7
+ * @version 1.8
  */
 
 #include <easyx.h>
+
 class StateMachine;
 
 class GameState {
@@ -22,8 +23,7 @@ public:
 	 * @param 对mach的引用
 	 * @author 李明泽
 	 */
-	GameState(StateMachine& mach)
-		:_mach(mach) {}
+	GameState(StateMachine& mach);
 
 
 	/**
@@ -74,7 +74,4 @@ protected:
 	*/
 	StateMachine& _mach;
 
-
-	//储存玩家数量，在PlayerNum中确定具体值，所有状态均可访问这个值
-	static int _num_of_players;
 };

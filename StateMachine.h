@@ -7,18 +7,18 @@
  * 
  * 该文件是状态机，用于控制游戏流程，在不同的界面、状态之间切换。
  * 
- * @version 1.7
+ * @version 1.8
  */
 
 #include <string>
 #include <map>
-#include "GameState.h"
 #include "StartMenu.h"
 #include "PlayerNum.h"
 #include "PlayerInfo.h"
 #include "CheckersGame.h"
 #include "WinView.h"
 #include <easyx.h>
+class GameState;
 
 class StateMachine {
 public:
@@ -28,19 +28,7 @@ public:
 	* 第一个游戏状态是菜单
 	* 记录对自身的引用
 	*/
-	StateMachine()
-		:_self_ref(*this), _curr("StarMenu") {
-		StartMenu start_menu(_self_ref);
-		_game_states["StarMenu"] = &start_menu;
-		PlayerNum player_num(_self_ref);
-		_game_states["PlayerMenu"] = &player_num;
-		PlayerInfo player_info(_self_ref);
-		_game_states["PlayerMenu"] = &player_info;
-		CheckersGame checkers_game(_self_ref);
-		_game_states["PlayerMenu"] = &checkers_game;
-		WinView win_view(_self_ref);
-		_game_states["WinView"] = &win_view;
-	}
+	StateMachine();
 
 
 	~StateMachine() {}
@@ -52,18 +40,14 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 李明泽
 	 */
-	void update(ExMessage &msg) {
-		_game_states[_curr]->update(msg);
-	}
+	void update(ExMessage& msg);
 
 
 	/**
 	 * @brief 游戏渲染
 	 * @author 李明泽
 	 */
-	void render() {
-		_game_states[_curr]->render();
-	}
+	void render();
 
 
 	/**
@@ -76,18 +60,14 @@ public:
 	 * @param 传入表示下一状态名称的字符串
 	 * @author 李明泽
 	 */
-	void changeStateTo(std::string to) {
-		_game_states[_curr]->exit();
-		_curr = to;
-		_game_states[_curr]->enter();
-	}
+	void changeStateTo(std::string to);
 
 
 private:
 
+
 	std::string _curr;//记录游戏当前状态
 	std::map<std::string, GameState*> _game_states;//将字符串名称映射为对应的GameState
 	StateMachine& _self_ref;//对自身的引用，构建GameState时作为参数传入
-
 
 };

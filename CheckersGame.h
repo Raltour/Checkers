@@ -4,7 +4,7 @@
  * @file CheckersGame.h
  * @brief 几个玩家轮流走棋，进行游戏
  * @author 李明泽
- * @version 1.7
+ * @version 1.8
  */
 
 #include "StateMachine.h"
@@ -15,8 +15,7 @@
 class CheckersGame : public GameState {
 public:
 
-	CheckersGame(StateMachine& _self_ref)
-		:GameState(_self_ref), _chess_board() {}
+	CheckersGame(StateMachine& _self_ref);
 
 
 	/**
@@ -25,23 +24,7 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 李明泽
 	 */
-	virtual void update(ExMessage &msg) {
-		if (msg.message == WM_LBUTTONDOWN) {
-
-			//点击的位置是个棋子，且与玩家对应
-			if ((_chess = _chess_board.isHereAChess(msg)) && Player::getCurrentPlayer().chessMatchPlayer(_chess)) {
-
-				Player::getCurrentPlayer().isWin(_chess_board.moveChess(_chess));
-
-				if (Player::isGameOver()) {
-					_mach.changeStateTo("WinView");
-				}
-
-			}
-
-
-		}
-	}
+	virtual void update(ExMessage& msg);
 
 
 	/**

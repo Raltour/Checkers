@@ -4,7 +4,7 @@
  * @file WinView.h
  * @brief  §¿˚Ω·À„ª≠√Ê
  * @author 
- * @version 1.7
+ * @version 1.8
  */
 
 #include "StateMachine.h"
