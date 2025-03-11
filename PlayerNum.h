@@ -23,14 +23,14 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 
 	 */
-	virtual void update(ExMessage &msg) {}
+	virtual void update(ExMessage& msg);
 
 
 	/**
 	 * @brief 游戏渲染
 	 * @author 
 	 */
-	virtual void render() {}
+	virtual void render();
 
 
 	/**
@@ -41,15 +41,13 @@ public:
 	 *
 	 * @author 
 	 */
-	virtual void enter() {}
+	virtual void enter();
 
 
 	/**
 	 * @brief 退出当前状态
 	 * @author 
 	 */
-	virtual void exit() {
-		cleardevice();
-	}
+	virtual void exit();
 
 };

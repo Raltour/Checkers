@@ -2,7 +2,7 @@
 
 /**
  * @file StartMenu.h
- * @author 
+ * @author 李明泽
  * @brief 游戏开始时的菜单界面
  * @version 1.8
  */
@@ -14,8 +14,7 @@
 
 class StartMenu : public GameState {
 public:
-	StartMenu(StateMachine& _self_ref)
-		:GameState(_self_ref) {}
+	StartMenu(StateMachine& _self_ref);
 
 
 	/**
@@ -24,18 +23,14 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author 
 	 */
-	virtual void update(ExMessage &msg) override {
-
-	}
+	virtual void update(ExMessage& msg);
 
 
 	/**
 	 * @brief 游戏渲染
 	 * @author 
 	 */
-	virtual void render() override {
-
-	}
+	virtual void render();
 
 
 	/**
@@ -46,16 +41,12 @@ public:
 	 *
 	 * @author 
 	 */
-	virtual void enter() override {
-
-	}
+	virtual void enter();
 
 
 	/**
 	 * @brief 退出当前状态
 	 * @author
 	 */
-	virtual void exit() override {
-
-	}
+	virtual void exit();
 };

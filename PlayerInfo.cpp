@@ -6,7 +6,6 @@
  */
 
 #include "StateMachine.h"
-#include "GameState.h"
 #include "Render.h"
 #include "Player.h"
 #include <vector>

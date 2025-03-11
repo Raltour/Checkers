@@ -3,7 +3,7 @@
 /**
  * @file WinView.h
  * @brief 胜利结算画面
- * @author 
+ * @author 李明泽
  * @version 1.8
  */
 
@@ -15,9 +15,7 @@
 class WinView : public GameState {
 public:
 
-	WinView(StateMachine& _self_ref)
-		:GameState(_self_ref) {
-	}
+	WinView(StateMachine& _self_ref);
 
 
 	/**
@@ -26,14 +24,14 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author
 	 */
-	virtual void update(ExMessage& msg) {}
+	virtual void update(ExMessage& msg);
 
 
 	/**
 	 * @brief 游戏渲染
 	 * @author
 	 */
-	virtual void render() {}
+	virtual void render();
 
 
 	/**
@@ -43,9 +41,7 @@ public:
 	 *
 	 * @author
 	 */
-	virtual void enter() {
-
-	}
+	virtual void enter();
 
 
 	/**
@@ -55,9 +51,7 @@ public:
 	 *
 	 * @author 
 	 */
-	virtual void exit() {
-		cleardevice();
-	}
+	virtual void exit();
 
 private:
 
