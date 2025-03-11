@@ -4,7 +4,7 @@
  * @file PlayerNumber.h
  * @brief 填入各个玩家的姓名，随后生成玩家
  * @author 李明泽
- * @version 1.7
+ * @version 1.8
  */
 
 #include "StateMachine.h"
@@ -16,9 +16,7 @@
 class PlayerInfo : public GameState {
 public:
 
-	PlayerInfo(StateMachine& _self_ref)
-		:GameState(_self_ref) {
-	}
+	PlayerInfo(StateMachine& _self_ref);
 
 
 	/**
@@ -27,23 +25,21 @@ public:
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author
 	 */
-	virtual void update(ExMessage &msg) {}
+	virtual void update(ExMessage& msg);
 
 
 	/**
 	 * @brief 游戏渲染
 	 * @author
 	 */
-	virtual void render() {}
+	virtual void render();
 
 
 	/**
 	 * @brief 进入该状态
 	 * @author
 	 */
-	virtual void enter() {
-		
-	}
+	virtual void enter();
 
 
 	/**
@@ -53,12 +49,7 @@ public:
 	 *
 	 * @author 李明泽
 	 */
-	virtual void exit() {
-		for (int i = 0; i < _num_of_players; i++) {
-			Player::addNewPlayer(colors[i], names[i]);
-		}
-		cleardevice();
-	}
+	virtual void exit();
 
 private:
 
