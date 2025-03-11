@@ -11,7 +11,7 @@
 
 
 //储存玩家数量，在PlayerNum和PlayerInfo之间共享
-extern int _num_of_players;
+extern int _num_of_players = 10;//为了过编译随便写的
 
 
 PlayerNum::PlayerNum(StateMachine& _self_ref)

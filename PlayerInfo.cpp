@@ -21,6 +21,21 @@ PlayerInfo::PlayerInfo(StateMachine& _self_ref)
 }
 
 
+void PlayerInfo::update(ExMessage& msg) {
+
+}
+
+
+void PlayerInfo::render() {
+
+}
+
+
+void PlayerInfo::enter() {
+
+}
+
+
 void PlayerInfo::exit() {
 	for (int i = 0; i < _num_of_players; i++) {
 		Player::addNewPlayer(colors[i], names[i]);

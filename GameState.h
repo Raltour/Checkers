@@ -7,7 +7,7 @@
  * @version 1.8
  */
 
-#include <easyx.h>
+#include "Render.h"
 
 class StateMachine;
 
