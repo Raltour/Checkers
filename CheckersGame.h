@@ -31,7 +31,7 @@ public:
 	 * @brief 游戏渲染
 	 * @author
 	 */
-	virtual void render() {}
+	virtual void render();
 
 
 	/**
@@ -42,14 +42,14 @@ public:
 	 *
 	 * @author
 	 */
-	virtual void enter() {}
+	virtual void enter();
 
 
 	/**
 	 * @brief 退出当前状态
 	 * @author
 	 */
-	virtual void exit() {}
+	virtual void exit();
 
 private:
 

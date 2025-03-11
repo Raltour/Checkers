@@ -34,3 +34,18 @@ void CheckersGame::update(ExMessage& msg) {
 
 	}
 }
+
+
+void CheckersGame::render() {
+
+}
+
+
+void CheckersGame::enter() {
+
+}
+
+
+void CheckersGame::exit() {
+	
+}
