@@ -14,9 +14,7 @@
 class PlayerNum : public GameState {
 public:
 
-	PlayerNum(StateMachine& _self_ref)
-		:GameState(_self_ref) {
-	}
+	PlayerNum(StateMachine& _self_ref);
 
 
 	/**

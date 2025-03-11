@@ -16,9 +16,7 @@
 class PlayerInfo : public GameState {
 public:
 
-	PlayerInfo(StateMachine& _self_ref)
-		:GameState(_self_ref) {
-	}
+	PlayerInfo(StateMachine& _self_ref);
 
 
 	/**

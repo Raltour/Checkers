@@ -1,5 +1,5 @@
 /**
- * @file PlayerNum.h
+ * @file CheckersGame.cpp
  * @brief PlayerNum函数的实现
  * @author 张三
  * @version 1.8

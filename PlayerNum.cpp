@@ -1,5 +1,5 @@
 /**
- * @file PlayerNum.h
+ * @file PlayerNum.cpp
  * @brief PlayerNum函数的实现
  * @author 张三
  * @version 1.8
