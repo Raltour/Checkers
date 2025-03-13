@@ -54,6 +54,6 @@ public:
 private:
 
 	std::vector<std::string> names;
-	std::vector<std::string> colors;
+	std::vector<COLORREF> colors;
 
 };

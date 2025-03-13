@@ -26,7 +26,7 @@ public:
 	 * @author 作者名字
 	 */
 	static Player& getCurrentPlayer() {
-		Player p("1", "3");//为了过编译瞎写的
+		Player p(WHITE, "3");//为了过编译瞎写的
 		return p;
 	}
 
@@ -54,7 +54,7 @@ public:
 	 * @param 玩家的名字
 	 * @author 李明泽
 	 */
-	static void addNewPlayer(std::string color, std::string name) {
+	static void addNewPlayer(COLORREF color, std::string name) {
 		Player* p = new Player(color, name);
 		p->storeNewPlayer();
 	}
@@ -67,7 +67,7 @@ public:
 	 * @author 李明泽
 	 */
 	bool chessMatchPlayer(Chess* chess) {
-		return this->_color == chess->_color;
+		return this->_color == chess->color();
 	}
 
 
@@ -103,10 +103,10 @@ private:
 
 
 
-	Player(std::string color, std::string name)
+	Player(COLORREF color, std::string name)
 		:_color(color), _name(name) {}
 
-	std::string _color;
+	COLORREF _color;
 	std::string _name;
 
 
