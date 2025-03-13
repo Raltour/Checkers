@@ -16,8 +16,7 @@
 class CheckersGame : public GameState {
 public:
 
-	CheckersGame(StateMachine& _self_ref)
-		:GameState(_self_ref) {}
+	//CheckersGame(StateMachine& _self_ref);
 
 
 	/**
@@ -57,8 +56,10 @@ public:
 	//对游戏棋盘的引用
 	Board _chess_board;
 
-private:
-
 	//由于目标棋子会不断变化，不能设为引用，1采用指针
 	Chess* _chess;
+
+private:
+
+
 };

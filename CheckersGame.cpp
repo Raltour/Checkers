@@ -12,7 +12,9 @@
 #include "Player.h"
 
 
-
+//CheckersGame::CheckersGame(StateMachine& _self_ref)
+//	:GameState(_self_ref) {
+//}
 
 
 void CheckersGame::update(ExMessage& msg) {

@@ -18,8 +18,8 @@ StateMachine::StateMachine()
 	_game_states["PlayerMenu"] = &player_num;
 	PlayerInfo player_info(_self_ref);
 	_game_states["PlayerMenu"] = &player_info;
-	CheckersGame checkers_game(_self_ref);
-	_game_states["PlayerMenu"] = &checkers_game;
+	//CheckersGame checkers_game(_self_ref);
+	//_game_states["PlayerMenu"] = &checkers_game;
 	WinView win_view(_self_ref);
 	_game_states["WinView"] = &win_view;
 }
