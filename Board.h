@@ -102,7 +102,7 @@ public:
     /*
         负责人:
         功能: 用于查找棋盘的位置
-            遍历pos，使用x与y坐标差值之和小于半径的平方
+            调用chessAt查找棋子
             使用哈希表查询下标
             记得先通过isHereAChess查询这个位置有没有棋子
         参数: 点击的坐标
@@ -177,6 +177,20 @@ public:
 	bool moveChess(Chess *chess);//返回值：该玩家有没有取得胜利
 
 
+    //loadimage 传入图片名 加载图片
+    static std::unique_ptr<Board> create(std::string filename);
+
+
+    /*
+        负责人:
+        功能: 输出图片背景
+             先输出图片，否则棋盘会覆盖
+        参数: 智能指针封装的棋子对象
+        返回值: 无
+    */
+    void putImage();
+
+
 private:
 
 	std::vector<std::unique_ptr<Chess>> m_chesses;   //棋子数组
@@ -203,6 +217,11 @@ private:
 	const int ld_y = 380;     //左下三角形的y坐标
 	const int rd_x = 435;     //右下三角形的x坐标
 	const int rd_y = 380;     //右下三角形的y坐标
+
+
+    IMAGE bkimage;              // 加载的图片
+    std::string m_filename;     //图片地址
+
 
 	//禁止使用构造，拷贝，统一使用静态工厂方法
 	Board();

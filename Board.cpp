@@ -78,6 +78,16 @@ bool Board::moveChess(Chess* chess) {
 }
 
 
+std::unique_ptr<Board> Board::create(std::string filename) {
+    return nullptr;
+}
+
+
+void Board::putImage() {
+
+}
+
+
 bool Board::isChessWin(COLORREF color) {
     return false;
 }
