@@ -3,7 +3,7 @@
 /**
  * @file Chess.h
  * @brief 棋盘中的棋子
- * @author 张三
+ * @author 杜云飞
  * @version 2.0
  */
 
