@@ -3,8 +3,8 @@
 /**
  * @file Chess.h
  * @brief 棋盘中的棋子
- * @author 张三
- * @version 1.8
+ * @author 杜云飞
+ * @version 2.0
  */
 
 #include <string>

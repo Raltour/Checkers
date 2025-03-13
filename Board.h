@@ -3,8 +3,8 @@
 /**
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
- * @author 张三
- * @version 1.8
+ * @author 杜云飞
+ * @version 2.0
  */
 
 #include "Chess.h"
@@ -45,6 +45,7 @@ public:
 	 * @author 作者名字
 	 */
 	bool moveChess(Chess *chess);//返回值：该玩家有没有取得胜利
+
 
 private:
 
