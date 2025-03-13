@@ -4,7 +4,7 @@
  * @file StartMenu.h
  * @author 李明泽
  * @brief 游戏开始时的菜单界面
- * @version 1.8
+ * @version 2.1
  */
 
 #include "StateMachine.h"

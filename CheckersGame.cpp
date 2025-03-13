@@ -2,7 +2,7 @@
  * @file CheckersGame.cpp
  * @brief PlayerNum函数的实现
  * @author 张三
- * @version 1.8
+ * @version 2.1
  */
 
 #include "StateMachine.h"
@@ -12,9 +12,9 @@
 #include "Player.h"
 
 
-CheckersGame::CheckersGame(StateMachine& _self_ref)
-	:GameState(_self_ref), _chess_board() {
-}
+//CheckersGame::CheckersGame(StateMachine& _self_ref)
+//	:GameState(_self_ref) {
+//}
 
 
 void CheckersGame::update(ExMessage& msg) {

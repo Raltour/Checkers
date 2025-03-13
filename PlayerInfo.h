@@ -4,7 +4,7 @@
  * @file PlayerNumber.h
  * @brief 填入各个玩家的姓名，随后生成玩家
  * @author 李明泽
- * @version 1.8
+ * @version 2.1
  */
 
 #include "StateMachine.h"
@@ -54,6 +54,6 @@ public:
 private:
 
 	std::vector<std::string> names;
-	std::vector<std::string> colors;
+	std::vector<COLORREF> colors;
 
 };

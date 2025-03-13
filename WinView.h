@@ -4,7 +4,7 @@
  * @file WinView.h
  * @brief 胜利结算画面
  * @author 李明泽
- * @version 1.8
+ * @version 2.1
  */
 
 #include "StateMachine.h"
