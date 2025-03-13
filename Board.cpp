@@ -9,7 +9,7 @@
 
 
 std::unique_ptr<Board> Board::create() {
-
+    return nullptr;
 }
 
 
