@@ -2,7 +2,7 @@
  * @file PlayerNum.cpp
  * @brief PlayerNum函数的实现
  * @author 张三
- * @version 2.0
+ * @version 2.1
  */
 
 #include "PlayerNum.h"
