@@ -43,16 +43,6 @@ public:
 	 */
 	virtual void enter();
 
-
-	/**
-	 * @brief 退出时生成给定数量的玩家
-	 *
-	 * 利用私有的字符串成员变量，依次生成对应的这些玩家
-	 *
-	 * @author 
-	 */
-	virtual void exit();
-
 private:
 
 	std::vector<std::string> names;

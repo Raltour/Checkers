@@ -6,7 +6,6 @@
  * @version 2.4
  */
 
-#include <easyx.h>
 #include <string>
 #include "Render.h"
 

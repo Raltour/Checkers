@@ -48,7 +48,3 @@ void CheckersGame::enter() {
 
 }
 
-
-void CheckersGame::exit() {
-	
-}

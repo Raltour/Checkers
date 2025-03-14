@@ -44,10 +44,4 @@ public:
 	virtual void enter();
 
 
-	/**
-	 * @brief ÍË³öµ±Ç°×´Ì¬
-	 * @author 
-	 */
-	virtual void exit();
-
 };

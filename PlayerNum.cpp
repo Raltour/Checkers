@@ -32,7 +32,3 @@ void PlayerNum::enter() {
 
 }
 
-
-void PlayerNum::exit() {
-	
-}

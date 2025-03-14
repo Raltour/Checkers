@@ -27,7 +27,3 @@ void StartMenu::enter() {
 
 }
 
-
-void StartMenu::exit() {
-
-}

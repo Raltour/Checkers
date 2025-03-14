@@ -51,13 +51,6 @@ public:
 	virtual void enter();
 
 
-	/**
-	 * @brief 退出当前状态
-	 * @author
-	 */
-	virtual void exit();
-
-
 private:
 
 	//游戏棋盘的指针

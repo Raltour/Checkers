@@ -28,7 +28,3 @@ void WinView::enter() {
 
 }
 
-
-void WinView::exit() {
-
-}

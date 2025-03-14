@@ -46,7 +46,7 @@ void StateMachine::render() {
 
 
 void StateMachine::changeStateTo(std::string to) {
-	_game_states[_curr]->exit();
+	cleardevice();
 	_curr = to;
 	_game_states[_curr]->enter();
 }

@@ -54,17 +54,6 @@ public:
 	virtual void enter() = 0;
 
 
-	/**
-	 * @brief 退出当前状态
-	 * 
-	 * 记录、修改必要的数据
-	 * 清空界面
-	 * 
-	 * @author 李明泽
-	 */
-	virtual void exit() = 0;
-
-
 
 protected:
 

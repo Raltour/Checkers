@@ -22,6 +22,8 @@ public:
 	/**
 	 * @brief 利用输入信息更新游戏状态
 	 *
+	 * 退出该界面时，根据输入的玩家信息生成对应的若干玩家
+	 * 
 	 * @param 鼠标所点击的位置或者键盘的输入字符
 	 * @author
 	 */
@@ -41,15 +43,6 @@ public:
 	 */
 	virtual void enter();
 
-
-	/**
-	 * @brief 退出时生成给定数量的玩家
-	 *
-	 * 利用私有的字符串成员变量，依次生成对应的这些玩家
-	 *
-	 * @author 李明泽
-	 */
-	virtual void exit();
 
 private:
 

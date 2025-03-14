@@ -139,6 +139,4 @@ void drawWinView();
 void loadBackGroundImage(std::string filename);
 
 
-//这里根据实际需求存储多张图片，仅作示例
-IMAGE bkimage;              // 加载的图片
-std::string m_filename;     //图片地址
+//这里根据实际需求存储多张图片的地址
