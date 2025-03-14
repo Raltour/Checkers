@@ -16,6 +16,7 @@ CheckersGame::CheckersGame(StateMachine& _self_ref)
 	:GameState(_self_ref), _chess(nullptr) {
 	 Board board();
 	 _chess_board = new Board;
+
 }
 
 
