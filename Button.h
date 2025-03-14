@@ -8,7 +8,7 @@
  * 所有的实现直接写在这个头文件中，不需要另开源文件
  * 
  * @author 杜云飞
- * @version 2.4
+ * @version 2.5
  */
 
 
@@ -36,7 +36,14 @@ public:
     }
 
 
-    //绘制
+    /**
+     * @brief 绘制按钮对象
+     *
+     * 边框黑色
+     * 文本背景透明
+     *
+     * @author 杜云飞
+     */
     void drawButton() const
     {
         setfillcolor(m_currentColor);       //当前颜色
@@ -53,6 +60,15 @@ public:
     }
 
 
+    /**
+     * @brief 确认按钮类是否被点击
+     *
+     * 边框黑色
+     * 文本背景透明
+     * 
+     * @para easyx消息传递
+     * @author 杜云飞
+     */
     bool isClicked(ExMessage msg)const
     {
         if (msg.message == WM_LBUTTONDOWN) {
@@ -63,13 +79,22 @@ public:
     }
 
 
+    /**
+     * @brief 更新按钮对象的文本部分
+     *
+     * @author 杜云飞
+     */
     void setText(const std::string& text)
     {
         this->m_text = text;
     }
 
 
-    //设置颜色
+    /**
+     * @brief 更新按钮对象的颜色
+     *
+     * @author 杜云飞
+     */
     void setColor(COLORREF changeColor)
     {
         m_oldColor = m_currentColor;  //保存当前颜色
@@ -78,7 +103,11 @@ public:
     }
 
 
-    //恢复上一个颜色
+    /**
+     * @brief 按钮对象的颜色恢复为原颜色
+     *
+     * @author 杜云飞
+     */
     void removeColor()
     {
         m_currentColor = m_oldColor;

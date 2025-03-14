@@ -4,7 +4,7 @@
  * @file StartMenu.h
  * @author 李明泽
  * @brief 游戏开始时的菜单界面
- * @version 2.4
+ * @version 2.5
  */
 
 #include "StateMachine.h"
@@ -21,14 +21,14 @@ public:
 	 * @brief 利用输入信息更新游戏状态
 	 *
 	 * @param 鼠标所点击的位置或者键盘的输入字符
-	 * @author 
+	 * @author 李明泽
 	 */
 	virtual void update(ExMessage& msg);
 
 
 	/**
 	 * @brief 游戏渲染
-	 * @author 
+	 * @author 李明泽
 	 */
 	virtual void render();
 
@@ -39,7 +39,7 @@ public:
 	 * 初始化
 	 * 渲染界面
 	 *
-	 * @author 
+	 * @author 李明泽
 	 */
 	virtual void enter();
 

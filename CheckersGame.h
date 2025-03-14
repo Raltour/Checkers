@@ -4,7 +4,7 @@
  * @file CheckersGame.h
  * @brief 几个玩家轮流走棋，进行游戏
  * @author 李明泽
- * @version 2.4
+ * @version 2.5
  */
 
 #include "StateMachine.h"
@@ -35,7 +35,7 @@ public:
 
 	/**
 	 * @brief 游戏渲染
-	 * @author
+	 * @author 李明泽
 	 */
 	virtual void render();
 
@@ -46,7 +46,7 @@ public:
 	 * 初始化
 	 * 渲染界面
 	 *
-	 * @author
+	 * @author 李明泽
 	 */
 	virtual void enter();
 
@@ -56,7 +56,7 @@ private:
 	//游戏棋盘的指针
 	Board* _chess_board;
 
-	//由于目标棋子会不断变化，不能设为引用，1采用指针
+	//由于目标棋子会不断变化，不能设为引用，采用指针
 	Chess* _chess;
 
 };

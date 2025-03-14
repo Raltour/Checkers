@@ -2,7 +2,7 @@
  * @file Board.cpp
  * @brief Board函数的实现
  * @author 
- * @version 2.4
+ * @version 2.5
  */
 
 #include "Board.h"
