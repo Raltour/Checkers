@@ -2,7 +2,7 @@
  * @file Render.cpp
  * @brief 绘图函数的具体实现
  * 
- * @author 张三
+ * @author 
  * @version 2.2
  */
 

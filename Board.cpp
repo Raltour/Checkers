@@ -1,15 +1,20 @@
 /**
  * @file Board.cpp
  * @brief Board函数的实现
- * @author 张三
+ * @author 
  * @version 2.2
  */
 
 #include "Board.h"
 
 
-std::unique_ptr<Board> Board::create() {
-    return nullptr;
+Board::Board() {
+
+}
+
+
+Board::~Board() {
+
 }
 
 

@@ -17,7 +17,10 @@
 class Board {
 public:
 
-    static std::unique_ptr<Board> create();
+    Board();
+
+
+    ~Board();
 
 
     /*
@@ -222,11 +225,6 @@ private:
     IMAGE bkimage;              // 加载的图片
     std::string m_filename;     //图片地址
 
-
-	//禁止使用构造，拷贝，统一使用静态工厂方法
-	Board();
-	Board(const Board&) = delete;
-	Board& operator=(const Board&) = delete;
 
 
 	/**

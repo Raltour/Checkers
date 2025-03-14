@@ -16,7 +16,7 @@
 class CheckersGame : public GameState {
 public:
 
-	//CheckersGame(StateMachine& _self_ref);
+	CheckersGame(StateMachine& _self_ref);
 
 
 	/**
@@ -53,13 +53,12 @@ public:
 	virtual void exit();
 
 
-	//对游戏棋盘的引用
-	Board _chess_board;
+private:
+
+	//游戏棋盘的指针
+	Board *_chess_board;
 
 	//由于目标棋子会不断变化，不能设为引用，1采用指针
 	Chess* _chess;
-
-private:
-
 
 };

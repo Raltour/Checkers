@@ -1,7 +1,7 @@
 /**
  * @file StartMenu.cpp
  * @brief StartMenu函数的实现
- * @author 张三
+ * @author 
  * @version 2.2
  */
 

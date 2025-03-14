@@ -1,7 +1,7 @@
 /**
  * @file WinView.cpp
  * @brief WinView函数的实现
- * @author 张三
+ * @author 
  * @version 2.2
  */
 

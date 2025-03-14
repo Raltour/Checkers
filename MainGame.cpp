@@ -42,7 +42,7 @@ int main() {
 /**
  * @file MyClass.cpp
  * @brief 该文件实现了 MyClass 类的功能。
- * @author 张三
+ * @author 
  * @version 1.0
  */
 
