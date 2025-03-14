@@ -4,7 +4,7 @@
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
  * @author 杜云飞
- * @version 2.1
+ * @version 2.2
  */
 
 #include "Chess.h"
@@ -17,7 +17,10 @@
 class Board {
 public:
 
-    static std::unique_ptr<Board> create();
+    Board();
+
+
+    ~Board();
 
 
     /*
@@ -222,11 +225,6 @@ private:
     IMAGE bkimage;              // 加载的图片
     std::string m_filename;     //图片地址
 
-
-	//禁止使用构造，拷贝，统一使用静态工厂方法
-	Board();
-	Board(const Board&) = delete;
-	Board& operator=(const Board&) = delete;
 
 
 	/**

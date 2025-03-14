@@ -1,8 +1,8 @@
 /**
  * @file WinView.cpp
  * @brief WinView函数的实现
- * @author 张三
- * @version 2.1
+ * @author 
+ * @version 2.2
  */
 
 #include "WinView.h"
