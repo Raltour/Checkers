@@ -46,6 +46,7 @@ public:
         //文本
         settextcolor(BLACK);  //设置文本颜色
         settextstyle(20, 0, "宋体");  //高度，自适应宽度，字体
+        setbkmode(TRANSPARENT);        // 关键：设置文本背景透明
         outtextxy(m_x + (m_width - textwidth(m_text.c_str())) / 2,
             m_y + (m_height - textheight(m_text.c_str())) / 2, m_text.c_str());
     }

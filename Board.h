@@ -77,47 +77,6 @@ public:
     int handleClick(ExMessage& msg);
 
 
-    /*
-        负责人:
-        功能: 找到相邻的跳跃节点，遍历邻接表得到
-              存入path路径数组
-        参数: 棋子的指针
-        返回值：无
-    */
-    void findSingleJumpMove(Chess* chess);
-
-
-    /*
-        负责人:
-        功能: 找到隔子跳跃和连续跳跃，同时使用路径数组存储，
-        使用标记哈希表存储已访问的位置
-            1.查找中间节点和跳跃的目标节点，中间节点+[dx,dy] * step
-             目标节点+[dx,dy] * step * 2
-            2.设置标记位置查找中间节点之前没有棋子(通过state)并且棋子存在(通过哈希表查询)，有true
-               可以通过事件的逆事件直接返回false
-            同时中间点存在
-            中间节点到目标节点没有棋子(通过state)，没有棋子则true
-            3.标记true
-              检查visited，确保没有访问过
-                如果哈希表中没有该节点
-                   添加目标节点到path,visted
-                然后再访问进行递归，最大幅度设为5
-        参数: 棋子的指针，每次跳跃的步幅
-        返回值：无
-    */
-    void findDoybleJumpMove(Chess* chess, int step);
-
-
-    /*
-        负责人:
-        功能: 方便DFS 递归搜索
-             直接循环maxStep次，调用findDoybleJumpMove
-        参数: 棋子的指针
-        返回值：无
-    */
-    void getJumpMove(Chess* chess);
-
-
 	/**
 	 * @brief 判断鼠标点击的位置是不是一个棋子
 	 *
@@ -183,5 +142,47 @@ private:
 	const int ld_y = 380;     //左下三角形的y坐标
 	const int rd_x = 435;     //右下三角形的x坐标
 	const int rd_y = 380;     //右下三角形的y坐标
+
+
+
+    /*
+    负责人:
+    功能: 找到相邻的跳跃节点，遍历邻接表得到
+          存入path路径数组
+    参数: 棋子的指针
+    返回值：无
+*/
+    void findSingleJumpMove(Chess* chess);
+
+
+    /*
+        负责人:
+        功能: 找到隔子跳跃和连续跳跃，同时使用路径数组存储，
+        使用标记哈希表存储已访问的位置
+            1.查找中间节点和跳跃的目标节点，中间节点+[dx,dy] * step
+             目标节点+[dx,dy] * step * 2
+            2.设置标记位置查找中间节点之前没有棋子(通过state)并且棋子存在(通过哈希表查询)，有true
+               可以通过事件的逆事件直接返回false
+            同时中间点存在
+            中间节点到目标节点没有棋子(通过state)，没有棋子则true
+            3.标记true
+              检查visited，确保没有访问过
+                如果哈希表中没有该节点
+                   添加目标节点到path,visted
+                然后再访问进行递归，最大幅度设为5
+        参数: 棋子的指针，每次跳跃的步幅
+        返回值：无
+    */
+    void findDoybleJumpMove(Chess* chess, int step);
+
+
+    /*
+        负责人:
+        功能: 方便DFS 递归搜索
+             直接循环maxStep次，调用findDoybleJumpMove
+        参数: 棋子的指针
+        返回值：无
+    */
+    void getJumpMove(Chess* chess);
 
 };
