@@ -4,7 +4,7 @@
  * @file GameState.h
  * @author 李明泽
  * @brief 定义了游戏的不同状态所具备的共有接口，供状态机使用。
- * @version 2.3
+ * @version 2.4
  */
 
 #include "Render.h"
@@ -52,17 +52,6 @@ public:
 	 * @author 李明泽
 	 */
 	virtual void enter() = 0;
-
-
-	/**
-	 * @brief 退出当前状态
-	 * 
-	 * 记录、修改必要的数据
-	 * 清空界面
-	 * 
-	 * @author 李明泽
-	 */
-	virtual void exit() = 0;
 
 
 

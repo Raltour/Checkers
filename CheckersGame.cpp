@@ -2,7 +2,7 @@
  * @file CheckersGame.cpp
  * @brief PlayerNum函数的实现
  * @author 
- * @version 2.3
+ * @version 2.4
  */
 
 #include "StateMachine.h"
@@ -48,7 +48,3 @@ void CheckersGame::enter() {
 
 }
 
-
-void CheckersGame::exit() {
-	
-}

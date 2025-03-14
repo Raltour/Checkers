@@ -2,7 +2,7 @@
  * @file PlayerNum.cpp
  * @brief PlayerNum函数的实现
  * @author 
- * @version 2.3
+ * @version 2.4
  */
 
 #include "PlayerNum.h"
@@ -32,7 +32,3 @@ void PlayerNum::enter() {
 
 }
 
-
-void PlayerNum::exit() {
-	
-}

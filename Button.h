@@ -8,11 +8,12 @@
  * 所有的实现直接写在这个头文件中，不需要另开源文件
  * 
  * @author 杜云飞
- * @version 2.3
+ * @version 2.4
  */
 
 
 #include <easyx.h>
+#include <graphics.h>
 #include <string>
 
 class Button
@@ -46,16 +47,18 @@ public:
         //文本
         settextcolor(BLACK);  //设置文本颜色
         settextstyle(20, 0, "宋体");  //高度，自适应宽度，字体
+        setbkmode(TRANSPARENT);        // 关键：设置文本背景透明
         outtextxy(m_x + (m_width - textwidth(m_text.c_str())) / 2,
             m_y + (m_height - textheight(m_text.c_str())) / 2, m_text.c_str());
     }
 
 
-    bool isClicked(int mouseX, int mouseY)const
+    bool isClicked(ExMessage msg)const
     {
-        if (mouseX >= m_x && mouseX <= m_x + m_width
-            && mouseY >= m_y && mouseY <= m_y + m_height)
-            return true;
+        if (msg.message == WM_LBUTTONDOWN) {
+            if (msg.x >= m_x && msg.x <= m_x + m_width && msg.y >= m_y && msg.y <= m_y + m_height)
+                return true;
+        }
         return false;
     }
 

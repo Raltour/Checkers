@@ -2,7 +2,7 @@
  * @file WinView.cpp
  * @brief WinView函数的实现
  * @author 
- * @version 2.3
+ * @version 2.4
  */
 
 #include "WinView.h"
@@ -28,7 +28,3 @@ void WinView::enter() {
 
 }
 
-
-void WinView::exit() {
-
-}

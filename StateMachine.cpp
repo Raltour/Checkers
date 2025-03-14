@@ -2,7 +2,7 @@
  * @file StateMachine.cpp
  * @brief StateMachine函数的实现
  * @author 
- * @version 2.3
+ * @version 2.4
  */
 
 #include "StateMachine.h"
@@ -46,7 +46,7 @@ void StateMachine::render() {
 
 
 void StateMachine::changeStateTo(std::string to) {
-	_game_states[_curr]->exit();
+	cleardevice();
 	_curr = to;
 	_game_states[_curr]->enter();
 }

@@ -2,15 +2,13 @@
  * @file Chess.cpp
  * @brief Chess函数的具体实现
  * @author 
- * @version 2.3
+ * @version 2.4
  */
 
 #include "Chess.h"
 
 
-
-
-std::unique_ptr<Chess> Chess::create(int x, int y, COLORREF) {
+Chess* Chess::createChess(int x, int y, COLORREF) {
 	return nullptr;
 }
 
@@ -35,11 +33,6 @@ chessState Chess::state() const {
 }
 
 
-void Chess::draw() {
-
-}
-
-
 void Chess::setPosition(int x, int y) {
 
 }
@@ -55,6 +48,6 @@ void Chess::changeChess(COLORREF color) {
 }
 
 
-void Chess::removeChess() {
+void Chess::recoveryColor() {
 
 }
