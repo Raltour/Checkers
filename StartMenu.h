@@ -4,7 +4,7 @@
  * @file StartMenu.h
  * @author 李明泽
  * @brief 游戏开始时的菜单界面
- * @version 2.3
+ * @version 2.4
  */
 
 #include "StateMachine.h"
@@ -44,9 +44,4 @@ public:
 	virtual void enter();
 
 
-	/**
-	 * @brief 退出当前状态
-	 * @author
-	 */
-	virtual void exit();
 };

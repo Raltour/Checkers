@@ -4,7 +4,7 @@
  * @file CheckersGame.h
  * @brief 几个玩家轮流走棋，进行游戏
  * @author 李明泽
- * @version 2.3
+ * @version 2.4
  */
 
 #include "StateMachine.h"
@@ -49,13 +49,6 @@ public:
 	 * @author
 	 */
 	virtual void enter();
-
-
-	/**
-	 * @brief 退出当前状态
-	 * @author
-	 */
-	virtual void exit();
 
 
 private:

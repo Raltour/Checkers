@@ -4,7 +4,7 @@
  * @file WinView.h
  * @brief 胜利结算画面
  * @author 李明泽
- * @version 2.3
+ * @version 2.4
  */
 
 #include "StateMachine.h"
@@ -42,16 +42,6 @@ public:
 	 * @author
 	 */
 	virtual void enter();
-
-
-	/**
-	 * @brief 退出时生成给定数量的玩家
-	 *
-	 * 利用私有的字符串成员变量，依次生成对应的这些玩家
-	 *
-	 * @author 
-	 */
-	virtual void exit();
 
 private:
 
