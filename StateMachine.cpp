@@ -15,11 +15,11 @@ StateMachine::StateMachine()
 	StartMenu start_menu(_self_ref);
 	_game_states["StarMenu"] = &start_menu;
 	PlayerNum player_num(_self_ref);
-	_game_states["PlayerMenu"] = &player_num;
+	_game_states["PlayerNum"] = &player_num;
 	PlayerInfo player_info(_self_ref);
-	_game_states["PlayerMenu"] = &player_info;
+	_game_states["PlayerInfo"] = &player_info;
 	CheckersGame checkers_game(_self_ref);
-	_game_states["PlayerMenu"] = &checkers_game;
+	_game_states["CheckersGame"] = &checkers_game;
 	WinView win_view(_self_ref);
 	_game_states["WinView"] = &win_view;
 
