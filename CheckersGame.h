@@ -19,6 +19,11 @@ public:
 	CheckersGame(StateMachine& _self_ref);
 
 
+	~CheckersGame() {
+		delete _chess_board;
+	}
+
+
 	/**
 	 * @brief 利用输入信息更新游戏状态
 	 *
@@ -56,7 +61,7 @@ public:
 private:
 
 	//游戏棋盘的指针
-	Board *_chess_board;
+	Board* _chess_board;
 
 	//由于目标棋子会不断变化，不能设为引用，1采用指针
 	Chess* _chess;
