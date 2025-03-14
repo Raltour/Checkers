@@ -4,7 +4,7 @@
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
  * @author 杜云飞
- * @version 2.3
+ * @version 2.4
  */
 
 #include "Chess.h"
@@ -18,7 +18,6 @@ class Board {
 public:
 
     Board();
-
 
     ~Board();
 
@@ -50,33 +49,7 @@ public:
         参数: 棋子的指针   新的x，y坐标
         返回值: 能移动，则返回true；不能返回false
     */
-    bool isMoveChess(Chess* chess, int newX, int newY);
-
-
-    /*
-        负责人:
-        功能: 绘制三角形，
-        同时使用addChess添加棋子，
-        state 记录顶点的状态  例如空设置0
-              根据不同的颜色设置不同的状态
-        pos记录所有棋子的坐标
-
-        参数: p_x,p_y 为起始坐标   n 表示画几层  c 表示三角形是正的还是倒的
-        color颜色
-        返回值：无返回值
-    */
-    void drawTriangle(int p_x, int p_y, const char c, int n, COLORREF color);
-
-
-    /*
-        负责人:
-        功能: 绘制棋盘和棋子,可是使用4个4层的三角形组成外围，
-        上下由9层的正三角，8层的倒三角组成，坐标已给出
-        调用6个drawTriangle 函数
-        参数: 无参数
-        返回值：无返回值
-    */
-    void draw();
+    bool isMoveChess(std::unique_ptr<Chess> chess, int newX, int newY);
 
 
     /*

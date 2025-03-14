@@ -2,7 +2,7 @@
  * @file PlayerInfo.h
  * @brief PlayerInfo函数的实现
  * @author 
- * @version 2.3
+ * @version 2.4
  */
 
 #include "StateMachine.h"
