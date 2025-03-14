@@ -125,3 +125,20 @@ void drawChechersGame();
 void drawWinView();
 
 
+/**
+* @brief 加载背景图片
+*
+* 由界面的打印函数调用，加载给定的背景图片
+* 先输出图片，随后打印界面中其他东西
+* 否则会覆盖
+*
+* @param 图片的地址
+* @return 返回值的描述
+* @author 作者名字
+*/
+void loadBackGroundImage(std::string filename);
+
+
+//这里根据实际需求存储多张图片，仅作示例
+IMAGE bkimage;              // 加载的图片
+std::string m_filename;     //图片地址

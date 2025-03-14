@@ -32,16 +32,6 @@ public:
 
 
     /*
-        负责人: 
-        功能: 检查棋盘位置的棋子
-              遍历棋子列表，使用x与y坐标差值之和小于半径的平方
-        参数: 坐标x，y
-        返回值: 返回棋子对象的指针，失败返回nuiiltr
-    */
-    Chess* chessAt(ExMessage& msg);
-
-
-    /*
         负责人:
         功能: 检查移动位置是否合法
               可以使用使用handleClick()判断
@@ -131,13 +121,13 @@ public:
 	/**
 	 * @brief 判断鼠标点击的位置是不是一个棋子
 	 *
-	 * 详细描述函数的功能、参数、返回值等信息。
+	 * 遍历棋子列表，使用x与y坐标差值之和小于半径的平方
 	 *
 	 * @param 鼠标信息
-	 * @return 如果是一个棋子，则将指针返回；否则返回空即可
+	 * @return 如果是一个棋子，则将指针返回；否则返回空空指针
 	 * @author 作者名字
 	 */
-	Chess* isHereAChess(ExMessage &msg);
+	std::unique_ptr<Chess>* isHereAChess(ExMessage &msg);
 
 
 	/**
@@ -153,18 +143,18 @@ public:
 	bool moveChess(Chess *chess);//返回值：该玩家有没有取得胜利
 
 
-    //loadimage 传入图片名 加载图片
-    static std::unique_ptr<Board> create(std::string filename);
-
-
-    /*
-        负责人:
-        功能: 输出图片背景
-             先输出图片，否则棋盘会覆盖
-        参数: 智能指针封装的棋子对象
-        返回值: 无
-    */
-    void putImage();
+    /**
+     * @brief 判断移动完成后有没有胜利
+     *
+     * 检查棋子是否全部到达对角区域，
+     * 检查特定颜色的对应区域是否填满了对应的棋子
+     * 棋盘上的颜色分布是固定的，算出棋子应该去的位置
+     *
+     * @param 需要判断的棋子的颜色
+     * @return 玩家是否胜利
+     * @author 作者名字
+     */
+    bool isChessWin(COLORREF color);
 
 
 private:
@@ -194,22 +184,4 @@ private:
 	const int rd_x = 435;     //右下三角形的x坐标
 	const int rd_y = 380;     //右下三角形的y坐标
 
-
-    IMAGE bkimage;              // 加载的图片
-    std::string m_filename;     //图片地址
-
-
-
-	/**
-	 * @brief 判断移动完成后有没有胜利
-	 * 
-     * 检查棋子是否全部到达对角区域，
-     * 检查特定颜色的对应区域是否填满了对应的棋子
-	 * 棋盘上的颜色分布是固定的，算出棋子应该去的位置
-	 *
-	 * @param 需要判断的棋子的颜色
-	 * @return 玩家是否胜利
-	 * @author 作者名字
-	 */
-	bool isChessWin(COLORREF color);
 };

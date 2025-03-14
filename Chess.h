@@ -106,7 +106,7 @@ public:
         参数: 无
         返回值：无
     */
-    void removeChess();
+    void recoveryColor();
 
 private:
 

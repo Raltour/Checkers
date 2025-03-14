@@ -35,11 +35,6 @@ chessState Chess::state() const {
 }
 
 
-void Chess::draw() {
-
-}
-
-
 void Chess::setPosition(int x, int y) {
 
 }
@@ -55,6 +50,6 @@ void Chess::changeChess(COLORREF color) {
 }
 
 
-void Chess::removeChess() {
+void Chess::recoveryColor() {
 
 }
