@@ -25,7 +25,7 @@ void gameLoop() {
 	StateMachine mach;
 	ExMessage meg;
 	while (true) {
-		peekmessage(&meg);
+		getmessage(&meg);
 		mach.update(meg);
 		mach.render();
 	}

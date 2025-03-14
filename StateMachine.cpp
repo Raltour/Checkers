@@ -22,6 +22,8 @@ StateMachine::StateMachine()
 	_game_states["PlayerMenu"] = &checkers_game;
 	WinView win_view(_self_ref);
 	_game_states["WinView"] = &win_view;
+
+	this->_game_states[_curr]->enter();
 }
 
 
