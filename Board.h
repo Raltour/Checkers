@@ -4,7 +4,7 @@
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
  * @author 杜云飞
- * @version 2.4
+ * @version 2.5
  */
 
 #include "Chess.h"
@@ -19,7 +19,7 @@ public:
 
     Board();
 
-    //棋子数组中的所有指针对应的内存
+    //释放棋子数组中的所有指针对应的内存
     ~Board();
 
 

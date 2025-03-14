@@ -4,7 +4,7 @@
  * @file Chess.h
  * @brief 棋盘中的棋子
  * @author 杜云飞
- * @version 2.4
+ * @version 2.5
  */
 
 #include <string>
@@ -20,9 +20,8 @@ public:
     /*
         负责人: 
         功能: 创建一个单独对象实例，
-        使用 std::unique_ptr 确保 Chess 对象的生命周期由智能指针管理，避免内存泄漏。
+        避免内存泄漏。
 
-           初始化:直接返回new的对象
         参数: 坐标 x,y
               颜色 color
         返回值：返回一个指向棋子类独占所有权的智能指针，自动管理

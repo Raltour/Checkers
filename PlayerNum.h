@@ -4,7 +4,7 @@
  * @file PlayerNum.h
  * @brief 用户选择参与游戏的人数，支持2、4、6人
  * @author 李明泽
- * @version 2.4
+ * @version 2.5
  */
 
 #include "StateMachine.h"
@@ -28,7 +28,7 @@ public:
 
 	/**
 	 * @brief 游戏渲染
-	 * @author 
+	 * @author 李明泽
 	 */
 	virtual void render();
 
@@ -39,7 +39,7 @@ public:
 	 * 初始化
 	 * 渲染界面
 	 *
-	 * @author 
+	 * @author 李明泽
 	 */
 	virtual void enter();
 
