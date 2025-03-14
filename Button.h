@@ -59,10 +59,12 @@ public:
         return false;
     }
 
+
     void setText(const std::string& text)
     {
         this->m_text = text;
     }
+
 
     //设置颜色
     void setColor(COLORREF changeColor)
@@ -71,6 +73,7 @@ public:
         m_changeColor = changeColor;  //改变颜色
         m_currentColor = m_changeColor; //更新当前颜色
     }
+
 
     //恢复上一个颜色
     void removeColor()
