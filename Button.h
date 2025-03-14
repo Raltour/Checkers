@@ -53,11 +53,12 @@ public:
     }
 
 
-    bool isClicked(int mouseX, int mouseY)const
+    bool isClicked(ExMessage msg)const
     {
-        if (mouseX >= m_x && mouseX <= m_x + m_width
-            && mouseY >= m_y && mouseY <= m_y + m_height)
-            return true;
+        if (msg.message == WM_LBUTTONDOWN) {
+            if (msg.x >= m_x && msg.x <= m_x + m_width && msg.y >= m_y && msg.y <= m_y + m_height)
+                return true;
+        }
         return false;
     }
 

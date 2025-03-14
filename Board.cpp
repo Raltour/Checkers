@@ -33,11 +33,6 @@ void Board::buildadj() {
 }
 
 
-int Board::handleClick(ExMessage& msg) {
-    return 0;
-}
-
-
 bool Board::isMoveChess(Chess* chess, int newX, int newY) {
     return false;
 }

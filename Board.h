@@ -34,17 +34,6 @@ public:
 
     /*
         负责人:
-        功能: 检查移动位置是否合法
-              可以使用使用handleClick()判断
-
-        参数: 棋子的指针   新的x，y坐标
-        返回值: 能移动，则返回true；不能返回false
-    */
-    bool isMoveChess(Chess* chess, int newX, int newY);
-
-
-    /*
-        负责人:
         功能: 遍历所有坐标，将坐标映射成索引
         例如pos_map[x][y] = i;
         参数: 无参数
@@ -67,15 +56,14 @@ public:
 
 
     /*
-        负责人:
-        功能: 用于查找棋盘的位置
-            调用chessAt查找棋子
-            使用哈希表查询下标
-            记得先通过isHereAChess查询这个位置有没有棋子
-        参数: 点击的坐标
-        返回值：返回棋子的索引,失败返回-1
-    */
-    int handleClick(ExMessage& msg);
+    负责人:
+    功能: 检查移动位置是否合法
+          可以使用使用handleClick()判断
+
+    参数: 棋子的指针   新的x，y坐标
+    返回值: 能移动，则返回true；不能返回false
+*/
+    bool isMoveChess(Chess* chess, int newX, int newY);
 
 
 	/**
