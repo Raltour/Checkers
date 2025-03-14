@@ -2,7 +2,7 @@
  * @file CheckersGame.cpp
  * @brief PlayerNum函数的实现
  * @author 
- * @version 2.2
+ * @version 2.3
  */
 
 #include "StateMachine.h"
@@ -16,6 +16,7 @@ CheckersGame::CheckersGame(StateMachine& _self_ref)
 	:GameState(_self_ref), _chess(nullptr) {
 	 Board board();
 	 _chess_board = new Board;
+
 }
 
 
