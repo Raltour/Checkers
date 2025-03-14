@@ -27,7 +27,7 @@ public:
               颜色 color
         返回值：返回一个指向棋子类独占所有权的智能指针，自动管理
     */
-    static std::unique_ptr<Chess> create(int x, int y, COLORREF);
+    static Chess* createChess(int x, int y, COLORREF);
 
 
     /*

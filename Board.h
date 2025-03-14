@@ -19,6 +19,7 @@ public:
 
     Board();
 
+    //棋子数组中的所有指针对应的内存
     ~Board();
 
 
@@ -86,7 +87,7 @@ public:
 	 * @return 如果是一个棋子，则将指针返回；否则返回空空指针
 	 * @author 作者名字
 	 */
-	std::unique_ptr<Chess>* isHereAChess(ExMessage &msg);
+	Chess* isHereAChess(ExMessage &msg);
 
 
 	/**
@@ -118,7 +119,7 @@ public:
 
 private:
 
-	std::vector<std::unique_ptr<Chess>> m_chesses;   //棋子数组
+	std::vector<Chess*> m_chesses;   //棋子数组
 	std::unordered_map<int, std::unordered_map<int, int>> pos_map;   //存储索引的哈希表
 	std::vector<std::vector<int>> adj;    //邻接表
 	std::unordered_set<int> visited;      //标记已访问

@@ -64,6 +64,6 @@ private:
 	Board* _chess_board;
 
 	//由于目标棋子会不断变化，不能设为引用，1采用指针
-	std::unique_ptr<Chess> _chess;
+	Chess* _chess;
 
 };
