@@ -8,9 +8,7 @@
 #include "Chess.h"
 
 
-
-
-std::unique_ptr<Chess> Chess::create(int x, int y, COLORREF) {
+Chess* Chess::createChess(int x, int y, COLORREF) {
 	return nullptr;
 }
 

@@ -23,26 +23,6 @@ void Board::addChess(std::unique_ptr<Chess> chess) {
 }
 
 
-Chess* Board::chessAt(ExMessage& msg) {
-    return NULL;
-}
-
-
-bool Board::isMoveChess(Chess* chess, int newX, int newY) {
-    return false;
-}
-
-
-void Board::drawTriangle(int p_x, int p_y, const char c, int n, COLORREF color) {
-    
-}
-
-
-void Board::draw() {
-
-}
-
-
 void Board::hashIndex() {
 
 }
@@ -80,16 +60,6 @@ Chess* Board::isHereAChess(ExMessage& msg) {
 
 bool Board::moveChess(Chess* chess) {
 	return false;
-}
-
-
-std::unique_ptr<Board> Board::create(std::string filename) {
-    return nullptr;
-}
-
-
-void Board::putImage() {
-
 }
 
 

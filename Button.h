@@ -13,6 +13,7 @@
 
 
 #include <easyx.h>
+#include <graphics.h>
 #include <string>
 
 class Button
