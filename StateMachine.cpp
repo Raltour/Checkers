@@ -11,17 +11,13 @@
 
 
 StateMachine::StateMachine()
-	:_self_ref(*this), _curr("StarMenu") {
-	StartMenu start_menu(_self_ref);
-	_game_states["StarMenu"] = &start_menu;
-	PlayerNum player_num(_self_ref);
-	_game_states["PlayerNum"] = &player_num;
-	PlayerInfo player_info(_self_ref);
-	_game_states["PlayerInfo"] = &player_info;
-	CheckersGame checkers_game(_self_ref);
-	_game_states["CheckersGame"] = &checkers_game;
-	WinView win_view(_self_ref);
-	_game_states["WinView"] = &win_view;
+	:_self_ref(*this), _curr("StartMenu") {
+
+	_game_states["StartMenu"] = new StartMenu(_self_ref);
+	_game_states["PlayerNum"] = new PlayerNum(_self_ref);
+	_game_states["PlayerInfo"] = new PlayerInfo(_self_ref);
+	_game_states["ChechersGame"] = new CheckersGame(_self_ref);
+	_game_states["WinView"] = new WinView(_self_ref);
 
 	this->_game_states[_curr]->enter();
 }
