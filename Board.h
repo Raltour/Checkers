@@ -40,7 +40,7 @@ public:
         参数: 棋子的指针   新的x，y坐标
         返回值: 能移动，则返回true；不能返回false
     */
-    bool isMoveChess(std::unique_ptr<Chess> chess, int newX, int newY);
+    bool isMoveChess(Chess* chess, int newX, int newY);
 
 
     /*

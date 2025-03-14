@@ -38,6 +38,11 @@ int Board::handleClick(ExMessage& msg) {
 }
 
 
+bool Board::isMoveChess(Chess* chess, int newX, int newY) {
+    return false;
+}
+
+
 void Board::findSingleJumpMove(Chess* chess) {
 
 }
