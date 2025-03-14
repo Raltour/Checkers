@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="CheckersGame.h" />
     <ClInclude Include="Chess.h" />
     <ClInclude Include="GameState.h" />

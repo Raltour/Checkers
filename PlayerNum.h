@@ -4,7 +4,7 @@
  * @file PlayerNum.h
  * @brief 用户选择参与游戏的人数，支持2、4、6人
  * @author 李明泽
- * @version 2.1
+ * @version 2.3
  */
 
 #include "StateMachine.h"
