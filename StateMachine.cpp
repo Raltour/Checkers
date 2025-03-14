@@ -2,7 +2,7 @@
  * @file StateMachine.cpp
  * @brief StateMachine函数的实现
  * @author 
- * @version 2.4
+ * @version 2.5
  */
 
 #include "StateMachine.h"
@@ -23,21 +23,20 @@ StateMachine::StateMachine()
 }
 
 
-/**
-	 * @brief 利用输入信息更新游戏状态
-	 *
-	 * @param 鼠标所点击的位置或者键盘的输入字符
-	 * @author 李明泽
-	 */
+StateMachine::~StateMachine() {
+	delete _game_states["StartMenu"];
+	delete _game_states["PlayerNum"];
+	delete _game_states["PlayerInfo"];
+	delete _game_states["ChechersGame"];
+	delete _game_states["WinView"];
+}
+
+
 void StateMachine::update(ExMessage& msg) {
 	StateMachine::_game_states[_curr]->update(msg);
 }
 
 
-/**
- * @brief 游戏渲染
- * @author 李明泽
- */
 void StateMachine::render() {
 	_game_states[_curr]->render();
 }

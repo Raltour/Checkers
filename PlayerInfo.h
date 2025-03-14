@@ -4,7 +4,7 @@
  * @file PlayerNumber.h
  * @brief 填入各个玩家的姓名，随后生成玩家
  * @author 李明泽
- * @version 2.4
+ * @version 2.5
  */
 
 #include "StateMachine.h"
@@ -32,21 +32,23 @@ public:
 
 	/**
 	 * @brief 游戏渲染
-	 * @author
+	 * @author 李明泽
 	 */
 	virtual void render();
 
 
 	/**
-	 * @brief 进入该状态
-	 * @author
+	 * @brief 进入该状态时做出对应调整
+	 * @author 李明泽
 	 */
 	virtual void enter();
 
 
 private:
 
+	//储存所有输入的玩家昵称
 	std::vector<std::string> names;
+	//储存各个玩家的对应颜色
 	std::vector<COLORREF> colors;
 
 };
