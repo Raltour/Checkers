@@ -12,6 +12,7 @@
 #include "Render.h"
 #include "Player.h"
 #include <vector>
+#include "TextBox.h"
 
 class PlayerInfo : public GameState {
 public:
@@ -51,4 +52,6 @@ private:
 	//储存各个玩家的对应颜色
 	std::vector<COLORREF> colors;
 
+	std::vector<TextBox*> b;
+	Button btnSubmit;
 };
