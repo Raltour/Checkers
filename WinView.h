@@ -8,7 +8,7 @@
  * 当游戏结束时，进入该状态以显示胜利信息，并提供返回主菜单或重新开始游戏的选项。
  *
  * @author 李明泽
- * @version 2.5
+ * @version 2.5.1
  */
 
 #include "StateMachine.h"

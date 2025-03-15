@@ -2,7 +2,7 @@
  * @file StateMachine.cpp
  * @brief StateMachine函数的实现
  * @author 
- * @version 2.5
+ * @version 2.5.1
  */
 
 #include "StateMachine.h"
