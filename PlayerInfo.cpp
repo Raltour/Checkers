@@ -120,7 +120,6 @@ void PlayerInfo::update(ExMessage& msg) {
 
 void PlayerInfo::render() {
     drawPlayerInfo();
-
     settextcolor(BLACK);
     if (_num_of_players == 2)
     {
