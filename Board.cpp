@@ -2,7 +2,7 @@
  * @file Board.cpp
  * @brief Board函数的实现
  * @author 
- * @version 2.5.2
+ * @version 2.5.3
  */
 
 #include "Board.h"
@@ -18,7 +18,7 @@ Board::~Board() {
 }
 
 
-void Board::addChess(std::unique_ptr<Chess> chess) {
+void Board::addChess(Chess* chess) {
 
 }
 

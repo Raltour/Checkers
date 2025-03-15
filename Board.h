@@ -4,7 +4,7 @@
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
  * @author 杜云飞
- * @version 2.5.2
+ * @version 2.5.3
  */
 
 #include "Chess.h"
@@ -26,10 +26,10 @@ public:
     /*
         负责人: 
         功能: 添加棋子到棋盘中
-        参数: 智能指针封装的棋子对象
+        参数: 棋子对象
         返回值: 无
     */
-    void addChess(std::unique_ptr<Chess> chess);
+    void addChess(Chess* chess);
 
 
     /*

@@ -2,7 +2,7 @@
  * @file PlayerNum.cpp
  * @brief PlayerNum函数的实现
  * @author 
- * @version 2.5.2
+ * @version 2.5.3
  */
 
 #include "PlayerNum.h"
@@ -10,7 +10,7 @@
 
 
 //储存玩家数量，在PlayerNum和PlayerNum之间共享
-extern int _num_of_players = 10;//为了过编译随便写的
+extern int _num_of_players = 0;
 
 
 PlayerNum::PlayerNum(StateMachine& _self_ref)
@@ -32,6 +32,32 @@ void PlayerNum::update(ExMessage& msg) {
         btn2.removeColor();
         btn2.drawButton();
 
+        _num_of_players = 2;
+        _mach.changeStateTo("PlayerInfo");
+    }
+    else if (btn4.isClicked(msg)) {
+        btn4.setColor(BLACK);
+        btn4.drawButton();
+
+        FlushBatchDraw();
+
+        btn4.removeColor();
+        btn4.drawButton();
+
+        _num_of_players = 4;
+        _mach.changeStateTo("PlayerInfo");
+    }
+    else if (btn6.isClicked(msg)) {
+        btn6.setColor(BLACK);
+        btn6.drawButton();
+
+        FlushBatchDraw();
+
+        btn6.removeColor();
+        btn6.drawButton();
+
+        _num_of_players = 6;
+        _mach.changeStateTo("PlayerInfo");
     }
 }
 

@@ -148,6 +148,7 @@
     <ClCompile Include="CheckersGame.cpp" />
     <ClCompile Include="Chess.cpp" />
     <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerInfo.cpp" />
     <ClCompile Include="PlayerNum.cpp" />
     <ClCompile Include="Render.cpp" />

@@ -3,7 +3,7 @@
  * @brief 绘图函数的具体实现
  * 
  * @author 
- * @version 2.5.2
+ * @version 2.5.3
  */
 
 #include <string>
@@ -89,55 +89,53 @@ void drawPlayerNum() {
 
 }
 
-
-// 绘制欢迎界面并添加动画效果
-void drawWelcomeInterface(const TCHAR* id) {
-    // 设置背景颜色为浅蓝色
-    setbkcolor(RGB(173, 216, 230));
-    cleardevice();
-    // 设置文字颜色为黑色
-    settextcolor(BLACK);
-    // 增大字体大小
-    settextstyle(70, 0, _T("宋体"));
-    TCHAR message[50];
-    _stprintf_s(message, _T("欢迎，%s！成功登录跳棋游戏！"), id);
-    int len = _tcslen(message);
-    TCHAR temp[50] = { 0 };
-    for (int i = 0; i <= len; i++) {
-        _tcsncpy_s(temp, message, i);
-        temp[i] = '\0';
-        setbkcolor(RGB(173, 216, 230));
-        cleardevice();
-        int textWidth = textwidth(temp);
-        int textHeight = textheight(temp);
-        int x = (1600 - textWidth) / 2;
-        int y = (900 - textHeight) / 2;
-
-        outtextxy(x, y, temp);
-        Sleep(100); // 控制动画速度
-    }
-}
-// 绘制登录界面
-void drawLoginInterface() {
-    // 设置背景颜色为浅蓝色
-    setbkcolor(RGB(173, 216, 230));
-    cleardevice();
-    // 设置文字颜色为黑色
-    settextcolor(BLACK);
-    // 增大字体大小
-    settextstyle(60, 0, _T("宋体"));
-    // 获取文字宽度和高度
-    int textWidth = textwidth(_T("请输入游戏 ID（用英文）:"));
-    int textHeight = textheight(_T("请输入游戏 ID（用英文）:"));
-    int x = (1500 - textWidth) / 2;
-    int y = (1000 - textHeight) / 2 - 100;
-    outtextxy(x, y, _T("请输入游戏 ID（用英文）:"));
-}
+//
+//// 绘制欢迎界面并添加动画效果
+//void drawWelcomeInterface(const TCHAR* id) {
+//    // 设置背景颜色为浅蓝色
+//    setbkcolor(RGB(173, 216, 230));
+//    cleardevice();
+//    // 设置文字颜色为黑色
+//    settextcolor(BLACK);
+//    // 增大字体大小
+//    settextstyle(70, 0, _T("宋体"));
+//    TCHAR message[50];
+//    _stprintf_s(message, _T("欢迎，%s！成功登录跳棋游戏！"), id);
+//    int len = _tcslen(message);
+//    TCHAR temp[50] = { 0 };
+//    for (int i = 0; i <= len; i++) {
+//        _tcsncpy_s(temp, message, i);
+//        temp[i] = '\0';
+//        setbkcolor(RGB(173, 216, 230));
+//        cleardevice();
+//        int textWidth = textwidth(temp);
+//        int textHeight = textheight(temp);
+//        int x = (1600 - textWidth) / 2;
+//        int y = (900 - textHeight) / 2;
+//
+//        outtextxy(x, y, temp);
+//        Sleep(100); // 控制动画速度
+//    }
+//}
+//// 绘制登录界面
+//void drawLoginInterface() {
+//    // 设置背景颜色为浅蓝色
+//    setbkcolor(RGB(173, 216, 230));
+//    cleardevice();
+//    // 设置文字颜色为黑色
+//    settextcolor(BLACK);
+//    // 增大字体大小
+//    settextstyle(60, 0, _T("宋体"));
+//    // 获取文字宽度和高度
+//    int textWidth = textwidth(_T("请输入游戏 ID（用英文）:"));
+//    int textHeight = textheight(_T("请输入游戏 ID（用英文）:"));
+//    int x = (1500 - textWidth) / 2;
+//    int y = (1000 - textHeight) / 2 - 100;
+//    outtextxy(x, y, _T("请输入游戏 ID（用英文）:"));
+//}
 void drawPlayerInfo() {
-    // 初始化图形窗口，大小为 1600x900
-    initgraph(1600, 900);
-    // 绘制登录界面
-    drawLoginInterface();
+    //// 绘制登录界面
+    //drawLoginInterface();
 
     // 绘制欢迎界面并添加动画效果
     //drawWelcomeInterface(id);
