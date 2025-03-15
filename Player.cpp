@@ -1,7 +1,10 @@
+/**
+ * @file Player.cpp
+ * @brief Player函数的实现
+ * @author
+ * @version 2.5.3
+ */
 #include "Player.h"
-
-
-
 
 Player& Player::getCurrentPlayer() {
 	return *playerQueue.front();
