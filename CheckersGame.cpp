@@ -2,7 +2,7 @@
  * @file CheckersGame.cpp
  * @brief PlayerNum函数的实现
  * @author 
- * @version 2.5.1
+ * @version 2.5.3
  */
 
 #include "StateMachine.h"

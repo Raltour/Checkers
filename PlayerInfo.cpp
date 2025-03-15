@@ -2,7 +2,7 @@
  * @file PlayerInfo.h
  * @brief PlayerInfo函数的实现
  * @author 
- * @version 2.5.1
+ * @version 2.5.3
  */
 
 #include "StateMachine.h"
@@ -33,11 +33,14 @@ void PlayerInfo::update(ExMessage& msg) {
 
 
 void PlayerInfo::render() {
+	drawPlayerInfo();
 
+	settextstyle(90, 0, "宋体");//胡写的
+	outtextxy((1500 - 100) / 2, 100, "模式选择");//胡写的
 }
 
 
 void PlayerInfo::enter() {
-
+	render();
 }
 
