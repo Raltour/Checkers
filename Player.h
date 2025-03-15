@@ -14,6 +14,7 @@
  */
 
 #include "Chess.h"
+#include <easyx.h>
 #include <string>
 #include <deque>
 #include <queue>
@@ -28,9 +29,7 @@ public:
 	 * @return 玩家容器最前端的一个人
 	 * @author 吕建豪
 	 */
-	static Player& getCurrentPlayer() {
-		return *playerQueue.front();
-	}
+	static Player& getCurrentPlayer();
 
 
 	/**
@@ -41,14 +40,7 @@ public:
 	 * @return 布尔值
 	 * @author 吕建豪 李明泽
 	 */
-	static bool isGameOver() {
-		if (playerQueue.size() == 1) {
-			winnerList.push_back(playerQueue.front());
-			playerQueue.pop();
-			return true;
-		}
-		return false;
-	}
+	static bool isGameOver();
 
 
 	/**
@@ -60,10 +52,7 @@ public:
 	 * @param 玩家的名字
 	 * @author 李明泽
 	 */
-	static void addNewPlayer(COLORREF color, std::string name) {
-		Player* p = new Player(color, name);
-		p->storeNewPlayer();
-	}
+	static void addNewPlayer(COLORREF color, std::string name);
 
 
 	/**
@@ -72,9 +61,7 @@ public:
 	 * @return 布尔值
 	 * @author 李明泽
 	 */
-	bool chessMatchPlayer(Chess* chess) {
-		return this->_color == chess->color();
-	}
+	bool chessMatchPlayer(Chess* chess);
 
 
 	/**
@@ -86,12 +73,7 @@ public:
 	 * @param Board中的检测函数的返回值
 	 * @author 李明泽
 	 */
-	void isWin(bool b) {
-		if (b) {
-			this->moveToWinner();
-		}
-		turnToNextPlayer();
-	}
+	void isWin(bool b);
 
 
 private:
@@ -110,9 +92,7 @@ private:
 	static std::vector<Player*> winnerList;
 
 	//玩家属性有颜色，名字
-	Player(COLORREF color, std::string name)
-		:_color(color), _name(name) {
-	}
+	Player(COLORREF color, std::string name);
 
 
 	COLORREF _color;
@@ -126,9 +106,7 @@ private:
 	 * 
 	 * @author 吕建豪
 	 */
-	void storeNewPlayer() {
-		playerQueue.push(this);
-	}
+	void storeNewPlayer();
 
 
 	/**
@@ -141,11 +119,7 @@ private:
 	 * @return 返回值的描述
 	 * @author 李明泽
 	 */
-	static void deleteAllPlayers() {
-		for (auto player : winnerList) {
-			delete player;
-		}
-	}
+	static void deleteAllPlayers();
 
 
 	/**
@@ -155,10 +129,7 @@ private:
 	 *
 	 * @author 李明泽
 	 */
-	void turnToNextPlayer() {
-		playerQueue.push(playerQueue.front());
-		playerQueue.pop();
-	}
+	void turnToNextPlayer();
 
 
 	/**
@@ -169,8 +140,5 @@ private:
 	 * 
 	 * @author 吕建豪
 	 */
-	void moveToWinner() {
-		winnerList.push_back(playerQueue.front());
-		playerQueue.pop();
-	}
+	void moveToWinner();
 };

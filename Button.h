@@ -35,8 +35,8 @@ public:
         m_oldColor(LIGHTGRAY), m_changeColor(LIGHTGRAY), m_currentColor(LIGHTGRAY) {
     }
 
-    Button() {
-
+    Button() : m_x(0), m_y(0), m_width(0), m_height(0), m_text(""),
+        m_oldColor(LIGHTGRAY), m_changeColor(LIGHTGRAY), m_currentColor(LIGHTGRAY) {
     }
 
     /**
