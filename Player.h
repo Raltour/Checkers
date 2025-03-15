@@ -15,6 +15,9 @@
 
 #include "Chess.h"
 #include <string>
+#include <deque>
+#include <queue>
+#include <vector>
 
 class Player {
 public:
@@ -23,24 +26,27 @@ public:
 	 * @brief 返回当前要走棋子的玩家
 	 *
 	 * @return 玩家容器最前端的一个人
-	 * @author 作者名字
+	 * @author 吕建豪
 	 */
 	static Player& getCurrentPlayer() {
-		Player p(WHITE, "3");//为了过编译瞎写的
-		return p;
+		return *playerQueue.front();
 	}
 
 
 	/**
-	 * @brief 判断游戏是否已经结束，清空堆内存
+	 * @brief 判断游戏是否已经结束
 	 *
 	 * 只需查看玩家容器是不是只剩一个人了
 	 * 
 	 * @return 布尔值
-	 * @author 作者名字
+	 * @author 吕建豪 李明泽
 	 */
 	static bool isGameOver() {
-
+		if (playerQueue.size() == 1) {
+			winnerList.push_back(playerQueue.front());
+			playerQueue.pop();
+			return true;
+		}
 		return false;
 	}
 
@@ -95,16 +101,19 @@ private:
 	* 这个容器应当能从一头拿出，也能从一头放入
 	* 构建静态胜者容器，游戏结束后根据里面的信息显示名词并更新排行榜积分
 	* 这个只要能按顺序存就好了
-	* （你们自定用什么结构就行）
 	*/
 
+	// 静态玩家容器（双向队列）
+	static std::queue<Player*> playerQueue;
 
+	// 静态胜者容器（按顺序存储）
+	static std::vector<Player*> winnerList;
 
-
-
-
+	//玩家属性有颜色，名字
 	Player(COLORREF color, std::string name)
-		:_color(color), _name(name) {}
+		:_color(color), _name(name) {
+	}
+
 
 	COLORREF _color;
 	std::string _name;
@@ -115,10 +124,10 @@ private:
 	 *
 	 * 该函数将调用自身的玩家的指针放入到容器中
 	 * 
-	 * @author 作者名字
+	 * @author 吕建豪
 	 */
 	void storeNewPlayer() {
-
+		playerQueue.push(this);
 	}
 
 
@@ -130,10 +139,12 @@ private:
 	 * 释放堆内存
 	 * 
 	 * @return 返回值的描述
-	 * @author 作者名字
+	 * @author 李明泽
 	 */
 	static void deleteAllPlayers() {
-
+		for (auto player : winnerList) {
+			delete player;
+		}
 	}
 
 
@@ -142,10 +153,11 @@ private:
 	 *
 	 * 把玩家容器头部的玩家扔到末尾去即可
 	 *
-	 * @author 作者名字
+	 * @author 李明泽
 	 */
 	void turnToNextPlayer() {
-		
+		playerQueue.push(playerQueue.front());
+		playerQueue.pop();
 	}
 
 
@@ -155,9 +167,10 @@ private:
 	 * 不需要检测是否获胜，
 	 * 这个函数就是在已知玩家胜利后，移动位置用的
 	 * 
-	 * @author 作者名字
+	 * @author 吕建豪
 	 */
 	void moveToWinner() {
-
+		winnerList.push_back(playerQueue.front());
+		playerQueue.pop();
 	}
 };

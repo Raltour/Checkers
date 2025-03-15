@@ -18,7 +18,7 @@ Board::~Board() {
 }
 
 
-void Board::addChess(std::unique_ptr<Chess> chess) {
+void Board::addChess(Chess* chess) {
 
 }
 

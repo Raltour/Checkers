@@ -40,11 +40,11 @@ void CheckersGame::update(ExMessage& msg) {
 
 
 void CheckersGame::render() {
-
+	drawChechersGame();
 }
 
 
 void CheckersGame::enter() {
-
+	render();
 }
 

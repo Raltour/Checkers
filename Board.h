@@ -26,10 +26,10 @@ public:
     /*
         负责人: 
         功能: 添加棋子到棋盘中
-        参数: 智能指针封装的棋子对象
+        参数: 棋子对象
         返回值: 无
     */
-    void addChess(std::unique_ptr<Chess> chess);
+    void addChess(Chess* chess);
 
 
     /*
