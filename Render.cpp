@@ -3,7 +3,7 @@
  * @brief 绘图函数的具体实现
  * 
  * @author 
- * @version 2.5.1
+ * @version 2.5.2
  */
 
 #include <string>
@@ -69,9 +69,7 @@ void drawStartMenu() {
 
 
 void drawPlayerNum() {
-    initgraph(1600, 900);
     setbkcolor(RGB(173, 216, 230));
-    cleardevice();
 
     int btnWidth = 400;
     int btnHeight = 100;
