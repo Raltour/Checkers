@@ -3,7 +3,7 @@
  * @brief 绘图函数的具体实现
  * 
  * @author 
- * @version 2.5
+ * @version 2.5.1
  */
 
 #include <string>
@@ -52,40 +52,99 @@ void drawHexagonGrid(){}
 void drawTriangle(int p_x, int p_y, const char c, int n, COLORREF color){}
 
 
-/*
- * @brief 绘制开始菜单
- *
- * 详细描述函数的功能、参数、返回值等信息。
- *
- * @author 作者名字
- */
-void drawStartMenu(){}
+void drawStartMenu() {
+
+    // 加载图片
+    //IMAGE img;
+    //loadimage(&img, "p1.jpg");  // 加载图片，路径为 "p1.jpg"
+    //putimage(0, 0, &img);  // 将图片绘制到窗口的 (0, 0) 位置
+
+    // 绘制文字
+    settextstyle(20, 0, _T("宋体"));  // 设置文字样式，字体大小为20，字体为宋体
+    settextcolor(CYAN);              // 设置文字颜色为青色
+    outtextxy(50, 50, _T("跳棋游戏"));  // 在 (50, 50) 位置绘制文字
+}
 
 
-/**
- * @brief
- *
- * 详细描述函数的功能、参数、返回值等信息。
- *
- * @param 参数1 描述参数1的作用
- * @param 参数2 描述参数2的作用
- * @return 返回值的描述
- * @author 作者名字
- */
-void drawPlayerNum(){}
+void drawPlayerNum() {
+    initgraph(1600, 900);
+    setbkcolor(RGB(173, 216, 230));
+    cleardevice();
+
+    int btnWidth = 400;
+    int btnHeight = 100;
+    int centerX = 1500 / 2 - btnWidth / 2;
+
+    Button btn2(centerX, 250, btnWidth, btnHeight, "双人模式");
+    Button btn4(centerX, 400, btnWidth, btnHeight, "4人模式");
+    Button btn6(centerX, 550, btnWidth, btnHeight, "6人模式");
+
+    settextcolor(WHITE);
+    settextstyle(90, 0, "宋体");
+    outtextxy((1500 - textwidth("模式选择")) / 2, 100, "模式选择");
+
+    btn2.drawButton();
+    btn4.drawButton();
+    btn6.drawButton();
+
+}
 
 
-/**
- * @brief
- *
- * 详细描述函数的功能、参数、返回值等信息。
- *
- * @param 参数1 描述参数1的作用
- * @param 参数2 描述参数2的作用
- * @return 返回值的描述
- * @author 作者名字
- */
-void drawPlayerInfo(){}
+// 绘制欢迎界面并添加动画效果
+void drawWelcomeInterface(const TCHAR* id) {
+    // 设置背景颜色为浅蓝色
+    setbkcolor(RGB(173, 216, 230));
+    cleardevice();
+    // 设置文字颜色为黑色
+    settextcolor(BLACK);
+    // 增大字体大小
+    settextstyle(70, 0, _T("宋体"));
+    TCHAR message[50];
+    _stprintf_s(message, _T("欢迎，%s！成功登录跳棋游戏！"), id);
+    int len = _tcslen(message);
+    TCHAR temp[50] = { 0 };
+    for (int i = 0; i <= len; i++) {
+        _tcsncpy_s(temp, message, i);
+        temp[i] = '\0';
+        setbkcolor(RGB(173, 216, 230));
+        cleardevice();
+        int textWidth = textwidth(temp);
+        int textHeight = textheight(temp);
+        int x = (1600 - textWidth) / 2;
+        int y = (900 - textHeight) / 2;
+
+        outtextxy(x, y, temp);
+        Sleep(100); // 控制动画速度
+    }
+}
+// 绘制登录界面
+void drawLoginInterface() {
+    // 设置背景颜色为浅蓝色
+    setbkcolor(RGB(173, 216, 230));
+    cleardevice();
+    // 设置文字颜色为黑色
+    settextcolor(BLACK);
+    // 增大字体大小
+    settextstyle(60, 0, _T("宋体"));
+    // 获取文字宽度和高度
+    int textWidth = textwidth(_T("请输入游戏 ID（用英文）:"));
+    int textHeight = textheight(_T("请输入游戏 ID（用英文）:"));
+    int x = (1500 - textWidth) / 2;
+    int y = (1000 - textHeight) / 2 - 100;
+    outtextxy(x, y, _T("请输入游戏 ID（用英文）:"));
+}
+void drawPlayerInfo() {
+    // 初始化图形窗口，大小为 1600x900
+    initgraph(1600, 900);
+    // 绘制登录界面
+    drawLoginInterface();
+
+    // 绘制欢迎界面并添加动画效果
+    //drawWelcomeInterface(id);
+
+    // 关闭图形窗口
+    closegraph();
+}
 
 
 /**

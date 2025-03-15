@@ -8,7 +8,7 @@
  * 所有的实现直接写在这个头文件中，不需要另开源文件
  * 
  * @author 杜云飞
- * @version 2.5
+ * @version 2.5.1
  */
 
 
@@ -35,6 +35,9 @@ public:
         m_oldColor(LIGHTGRAY), m_changeColor(LIGHTGRAY), m_currentColor(LIGHTGRAY) {
     }
 
+    Button() {
+
+    }
 
     /**
      * @brief 绘制按钮对象
