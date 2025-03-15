@@ -3,7 +3,7 @@
  * @brief 绘图函数的具体实现
  * 
  * @author 
- * @version 2.5.3
+ * @version 2.5.4
  */
 
 #include <string>
@@ -89,7 +89,7 @@ void drawPlayerNum() {
 
 }
 
-//
+
 //// 绘制欢迎界面并添加动画效果
 //void drawWelcomeInterface(const TCHAR* id) {
 //    // 设置背景颜色为浅蓝色
@@ -117,6 +117,7 @@ void drawPlayerNum() {
 //        Sleep(100); // 控制动画速度
 //    }
 //}
+//
 //// 绘制登录界面
 //void drawLoginInterface() {
 //    // 设置背景颜色为浅蓝色
@@ -133,15 +134,12 @@ void drawPlayerNum() {
 //    int y = (1000 - textHeight) / 2 - 100;
 //    outtextxy(x, y, _T("请输入游戏 ID（用英文）:"));
 //}
+
 void drawPlayerInfo() {
-    //// 绘制登录界面
-    //drawLoginInterface();
+    setbkcolor(RGB(173, 216, 230));
+    cleardevice();
 
-    // 绘制欢迎界面并添加动画效果
-    //drawWelcomeInterface(id);
 
-    // 关闭图形窗口
-    closegraph();
 }
 
 

@@ -2,41 +2,151 @@
  * @file PlayerInfo.h
  * @brief PlayerInfo函数的实现
  * @author 
- * @version 2.5.3
+ * @version 2.5.4
  */
 
-#include "StateMachine.h"
-#include "Render.h"
-#include "Player.h"
-#include <vector>
 #include "PlayerInfo.h"
+
 
 //储存玩家数量，在PlayerNum和PlayerInfo之间共享
 extern int _num_of_players;
 
 
 PlayerInfo::PlayerInfo(StateMachine& _self_ref)
-	:GameState(_self_ref) {
+    :GameState(_self_ref) {
+
+    for (int i = 0; i < _num_of_players; i++)
+        b.push_back(new TextBox(700, 50 + i * 150, 200, 50, 10));
+
+    btnSubmit = Button(1000, 350, 100, 30, "确认");
 }
 
 
 void PlayerInfo::update(ExMessage& msg) {
 
-	//退出该界面时，根据已有信息生成对应的玩家
-	if (true) {
-		for (int i = 0; i < _num_of_players; i++) {
-			Player::addNewPlayer(colors[i], names[i]);
-		}
-		cleardevice();
-	}
+    switch (msg.message)
+    {
+    case WM_LBUTTONDOWN:
+    {
+        int x = msg.x, y = msg.y;
+        // 检查是否点击按钮
+        if (btnSubmit.isClicked(msg))
+        {
+            btnSubmit.setColor(RED); // 按钮点击效果
+            btnSubmit.drawButton();
+            // 获取输入内容
+            for (auto& name : b)
+                names.push_back(name->getText());
+
+            if (_num_of_players == 2)
+            {
+                colors.push_back(RED);
+                colors.push_back(GREEN);
+            }
+            else if (_num_of_players == 4)
+            {
+                colors.push_back(RED);
+                colors.push_back(GREEN);
+                colors.push_back(BLUE);
+                colors.push_back(YELLOW);
+            }
+            else if (_num_of_players == 6)
+            {
+                colors.push_back(RED);
+                colors.push_back(GREEN);
+                colors.push_back(BLUE);
+                colors.push_back(YELLOW);
+                colors.push_back(CYAN);
+                colors.push_back(MAGENTA);
+            }
+            btnSubmit.removeColor();
+            btnSubmit.drawButton();
+        }
+        // 检查输入框点击
+        bool selected = false;
+        for (auto& p : b)
+        {
+            if (p->checkClick(x, y))
+            {
+                selected = true;
+                p->isSelected = true;
+            }
+        }
+
+        // 如果未点击任何输入框，取消所有选中状态
+        if (!selected) {
+            for (auto& p : b)
+                p->isSelected = false;
+        }
+        break;
+    }
+    case WM_KEYDOWN:
+    {
+
+        wchar_t ch = msg.vkcode;
+
+        // 获取当前选中的输入框
+        TextBox* activeTB = nullptr;
+
+        for (auto& s : b)
+            if (s->isSelected) {
+                activeTB = s;
+
+                if (activeTB) {
+                    activeTB->keyInput(ch); // 处理键盘输入
+                }
+                break;
+            }
+    }
+    }
+
+    // 绘制所有控件
+    cleardevice();
+    for (auto& p : b)
+        p->draw();
+
+    btnSubmit.drawButton();
+
+    // 更新光标显示
+    for (auto& p : b)
+        if (p->isSelected)
+            p->updateCursor();
+
+
+    Sleep(10);
+
 }
 
 
 void PlayerInfo::render() {
-	drawPlayerInfo();
+    drawPlayerInfo();
+    settextcolor(BLACK);
+    if (_num_of_players == 2)
+    {
+        outtextxy(600, 50, ("玩家1:"));
+        outtextxy(600, 200, ("玩家2:"));
+    }
+    else if (_num_of_players == 4)
+    {
+        outtextxy(600, 50, ("玩家1:"));
+        outtextxy(600, 200, ("玩家2:"));
+        outtextxy(600, 350, ("玩家3:"));
+        outtextxy(600, 500, ("玩家4:"));
+    }
 
-	settextstyle(90, 0, "宋体");//胡写的
-	outtextxy((1500 - 100) / 2, 100, "模式选择");//胡写的
+    else if (_num_of_players == 6)
+    {
+        outtextxy(600, 50, ("玩家1:"));
+        outtextxy(600, 200, ("玩家2:"));
+        outtextxy(600, 350, ("玩家3:"));
+        outtextxy(600, 500, ("玩家4:"));
+        outtextxy(600, 650, ("玩家5:"));
+        outtextxy(600, 800, ("玩家6:"));
+    }
+
+    for (int i = 0; i < _num_of_players; i++)
+        b[i]->draw();
+    btnSubmit.drawButton();
 }
 
 
