@@ -16,37 +16,38 @@ StartMenu::StartMenu(StateMachine& _self_ref)
 
 
 void StartMenu::update(ExMessage& msg) {
-    //左键按下
-    if (msg.message == WM_LBUTTONDOWN)
+
+    if (b1.isClicked(msg))
     {
-        if (b1.isClicked(msg))
-        {
-            b1.setColor(BLACK);
-            b1.drawButton();
-            Sleep(2);
-            b1.removeColor();
-            b1.drawButton();
-            Sleep(2);
+        b1.setColor(BLACK);
+        b1.drawButton();
+        FlushBatchDraw(); // 立即刷新显示
+        b1.removeColor();
+        b1.drawButton();
+        Sleep(2);
 
-            _mach.changeStateTo("PlayerMenu");
-        }
-        else if (b2.isClicked(msg))
-        {
-            b2.setColor(BLACK);
-            b2.drawButton();
-            Sleep(2);
-            b2.removeColor();
-            b2.drawButton();
-            Sleep(2);
-            exit(0);
-        }
-
+        _mach.changeStateTo("PlayerNum");
     }
+    else if (b2.isClicked(msg))
+    {
+        b2.setColor(BLACK);
+        b2.drawButton();
+        FlushBatchDraw(); // 立即刷新显示
+        b2.removeColor();
+        b2.drawButton();
+
+        closegraph(); // 先关闭图形窗口
+        exit(0);
+    }
+
+
 }
 
 
 void StartMenu::render() {
     drawStartMenu();
+    b1.drawButton();
+    b2.drawButton();
 }
 
 

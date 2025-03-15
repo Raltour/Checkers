@@ -66,7 +66,7 @@ void drawTriangle(int p_x, int p_y, const char c, int n, COLORREF color);
  * 该函数负责绘制游戏的开始菜单界面。开始菜单通常包括游戏标题、开始按钮、
  * 设置按钮和退出按钮等元素。
  *
- * @author 吕建豪
+ * @author 吕建豪 杜云飞
  */
 void drawStartMenu();
 
