@@ -4,7 +4,7 @@
  * @file PlayerNumber.h
  * @brief 填入各个玩家的姓名，随后生成玩家
  * @author 李明泽
- * @version 2.5.3
+ * @version 2.5.4
  */
 
 #include "StateMachine.h"
