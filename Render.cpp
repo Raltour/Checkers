@@ -3,7 +3,7 @@
  * @brief 绘图函数的具体实现
  * 
  * @author 
- * @version 2.5.1
+ * @version 2.5.2
  */
 
 #include <string>
@@ -56,20 +56,20 @@ void drawStartMenu() {
 
     // 加载图片
     IMAGE img;
-    loadimage(&img, "p1.jpg");  // 加载图片，路径为 "p1.jpg"
+    loadimage(&img, "p1.jpg", 1600, 900);  // 加载图片，路径为 "p1.jpg"
     putimage(0, 0, &img);  // 将图片绘制到窗口的 (0, 0) 位置
 
-    // 绘制文字
-    settextstyle(20, 0, _T("宋体"));  // 设置文字样式，字体大小为20，字体为宋体
-    settextcolor(CYAN);              // 设置文字颜色为青色
-    outtextxy(50, 50, _T("跳棋游戏"));  // 在 (50, 50) 位置绘制文字
+
+    IMAGE image;
+    loadimage(&image, "p2.jpg", 200, 100);
+    putimage(700, 100, &image);
+
+
 }
 
 
 void drawPlayerNum() {
-    initgraph(1600, 900);
     setbkcolor(RGB(173, 216, 230));
-    cleardevice();
 
     int btnWidth = 400;
     int btnHeight = 100;

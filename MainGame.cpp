@@ -7,7 +7,7 @@
  * 在这里初始化了状态机的唯一实例 `mach`，并在其内部保存对自身的引用。
  * 该引用会被传递给所有的 `GameState`，以便在游戏过程中随时进行状态切换和操作。
  *
- * @version 2.5.1
+ * @version 2.5.2
  */
 
 #include "StateMachine.h"
@@ -28,15 +28,22 @@ void gameLoop() {
 	ExMessage meg;     // 用于存储用户输入的消息
 
 	while (true) {
-		// 获取用户输入（鼠标点击或键盘输入）
-		getmessage(&meg);
 
-		// 更新状态机状态
-		mach.update(meg);
+		BeginBatchDraw();
+		//获取用户输入（鼠标点击或键盘输入）
+		while (peekmessage(&meg, EX_MOUSE | EX_KEY, true)) { // true表示移除消息
+			mach.update(meg);
+		}
 
+		cleardevice();     // 清空画布
 		// 渲染当前游戏状态
 		mach.render();
+
+
+		EndBatchDraw();
+		Sleep(1);
 	}
+	closegraph();
 }
 
 /**

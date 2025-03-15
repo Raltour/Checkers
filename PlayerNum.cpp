@@ -2,7 +2,7 @@
  * @file PlayerNum.cpp
  * @brief PlayerNum函数的实现
  * @author 
- * @version 2.5.1
+ * @version 2.5.2
  */
 
 #include "PlayerNum.h"
@@ -14,16 +14,39 @@ extern int _num_of_players = 10;//为了过编译随便写的
 
 
 PlayerNum::PlayerNum(StateMachine& _self_ref)
-	:GameState(_self_ref) {
+    :GameState(_self_ref) {
+    btn2 = Button(700, 250, 400, 100, "双人模式");
+    btn4 = Button(700, 400, 400, 100, "4人模式");
+    btn6 = Button(700, 550, 400, 100, "6人模式");
 }
 
 
 void PlayerNum::update(ExMessage& msg) {
+    if (btn2.isClicked(msg))
+    {
+        btn2.setColor(BLACK);
+        btn2.drawButton();
 
+        FlushBatchDraw();
+
+        btn2.removeColor();
+        btn2.drawButton();
+
+    }
 }
 
 
 void PlayerNum::render() {
+    drawPlayerNum();
+
+
+    btn2.drawButton();
+    btn4.drawButton();
+    btn6.drawButton();
+
+    settextstyle(90, 0, "宋体");
+    outtextxy((1500 - 100) / 2, 100, "模式选择");
+
 
 }
 

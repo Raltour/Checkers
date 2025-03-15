@@ -4,7 +4,7 @@
  * @file PlayerNum.h
  * @brief 用户选择参与游戏的人数，支持2、4、6人
  * @author 李明泽
- * @version 2.5.1
+ * @version 2.5.2
  */
 
 #include "StateMachine.h"
@@ -21,7 +21,7 @@ public:
 	 * @brief 利用输入信息更新游戏状态
 	 *
 	 * @param 鼠标所点击的位置或者键盘的输入字符
-	 * @author 
+	 * @author 杜云飞
 	 */
 	virtual void update(ExMessage& msg);
 
@@ -43,5 +43,8 @@ public:
 	 */
 	virtual void enter();
 
-
+private:
+	Button btn2;
+	Button btn4;
+	Button btn6;
 };
