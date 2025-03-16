@@ -17,7 +17,11 @@ private:
 public:
 
     TextBox(int x, int y, int width, int height, int maxWord);
-    TextBox(){}
+
+    // 禁用默认构造函数
+    TextBox() = delete;
+
+
     bool isSelected;    //是否被选中
     const std::string& getText() const;
 

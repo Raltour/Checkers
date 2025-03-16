@@ -3,6 +3,7 @@
 TextBox::TextBox(int x, int y, int width, int height, int maxWord)
     : x(x), y(y), width(width), height(height), maxWord(maxWord), isSelected(false), showCursor(false), cursorPos(0)
 {
+
 }
 
 const std::string& TextBox::getText() const
@@ -20,7 +21,7 @@ bool TextBox::isEmpty() const
 void TextBox::setText(const std::string& newText)
 {
     text = newText;
-    cursorPos = text.length();
+    cursorPos = static_cast<int>(text.length());
 }
 
 void TextBox::draw()
@@ -54,7 +55,7 @@ bool TextBox::checkClick(int mouseX, int mouseY)
     else
     {
         isSelected = false;
-        cursorPos = text.length();
+        cursorPos = static_cast<int>(text.length());
         return false;
     }
 }
@@ -75,7 +76,7 @@ void TextBox::keyInput(wchar_t  ch)
             }
             break;
         case VK_RETURN:
-            cursorPos = text.length();
+            cursorPos = static_cast<int>(text.length());
             isSelected = false;
             break;
         default:				// 用户按其它键，接受文本输入

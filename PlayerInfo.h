@@ -4,7 +4,7 @@
  * @file PlayerNumber.h
  * @brief 填入各个玩家的姓名，随后生成玩家
  * @author 李明泽
- * @version 2.5.4
+ * @version 2.5.5
  */
 
 #include "StateMachine.h"
@@ -18,6 +18,8 @@ class PlayerInfo : public GameState {
 public:
 
 	PlayerInfo(StateMachine& _self_ref);
+
+	~PlayerInfo();
 
 
 	/**
@@ -52,6 +54,8 @@ private:
 	//储存各个玩家的对应颜色
 	std::vector<COLORREF> colors;
 
-	std::vector<TextBox*> b;
+	std::vector<TextBox> b;
 	Button btnSubmit;
+
+	static bool isInit;
 };

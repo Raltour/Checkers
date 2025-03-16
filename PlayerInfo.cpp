@@ -1,8 +1,8 @@
 /**
- * @file PlayerInfo.h
+ * @file PlayerInfo.cpp
  * @brief PlayerInfo函数的实现
  * @author 
- * @version 2.5.4
+ * @version 2.5.5
  */
 
 #include "PlayerInfo.h"
@@ -12,15 +12,12 @@
 extern int _num_of_players;
 
 
+bool PlayerInfo::isInit = false;
+
 PlayerInfo::PlayerInfo(StateMachine& _self_ref)
     :GameState(_self_ref) {
-
-    for (int i = 0; i < _num_of_players; i++)
-        b.push_back(new TextBox(700, 50 + i * 150, 200, 50, 10));
-
-    btnSubmit = Button(1000, 350, 100, 30, "确认");
+    b.clear();
 }
-
 
 void PlayerInfo::update(ExMessage& msg) {
 
@@ -34,9 +31,13 @@ void PlayerInfo::update(ExMessage& msg) {
         {
             btnSubmit.setColor(RED); // 按钮点击效果
             btnSubmit.drawButton();
+
+            names.clear();
+            colors.clear();
+
             // 获取输入内容
             for (auto& name : b)
-                names.push_back(name->getText());
+                names.push_back(name.getText());
 
             if (_num_of_players == 2)
             {
@@ -59,6 +60,9 @@ void PlayerInfo::update(ExMessage& msg) {
                 colors.push_back(CYAN);
                 colors.push_back(MAGENTA);
             }
+
+            for (int i = 0; i < _num_of_players; i++)
+                Player::addNewPlayer(colors[i], names[i]);
             btnSubmit.removeColor();
             btnSubmit.drawButton();
         }
@@ -66,17 +70,17 @@ void PlayerInfo::update(ExMessage& msg) {
         bool selected = false;
         for (auto& p : b)
         {
-            if (p->checkClick(x, y))
+            if (p.checkClick(x, y))
             {
                 selected = true;
-                p->isSelected = true;
+                p.isSelected = true;
             }
         }
 
         // 如果未点击任何输入框，取消所有选中状态
         if (!selected) {
             for (auto& p : b)
-                p->isSelected = false;
+                p.isSelected = false;
         }
         break;
     }
@@ -89,8 +93,8 @@ void PlayerInfo::update(ExMessage& msg) {
         TextBox* activeTB = nullptr;
 
         for (auto& s : b)
-            if (s->isSelected) {
-                activeTB = s;
+            if (s.isSelected) {
+                activeTB = &s;
 
                 if (activeTB) {
                     activeTB->keyInput(ch); // 处理键盘输入
@@ -103,14 +107,14 @@ void PlayerInfo::update(ExMessage& msg) {
     // 绘制所有控件
     cleardevice();
     for (auto& p : b)
-        p->draw();
+        p.draw();
 
     btnSubmit.drawButton();
 
     // 更新光标显示
     for (auto& p : b)
-        if (p->isSelected)
-            p->updateCursor();
+        if (p.isSelected)
+            p.updateCursor();
 
 
     Sleep(10);
@@ -121,6 +125,22 @@ void PlayerInfo::update(ExMessage& msg) {
 void PlayerInfo::render() {
     drawPlayerInfo();
     settextcolor(BLACK);
+
+
+    //保证只初始化一次
+
+    if (!isInit)
+    {
+        std::cout << "Creating " << _num_of_players << " TextBox objects." << std::endl;
+        for (int i = 0; i < _num_of_players; i++)
+        {
+            std::cout << "Creating TextBox at index " << i << std::endl;
+            b.emplace_back(TextBox(700, 50 + i * 150, 200, 50, 10));
+        }
+        btnSubmit = Button(1000, 350, 100, 30, "确认");
+        isInit = true;
+    }
+
     if (_num_of_players == 2)
     {
         outtextxy(600, 50, ("玩家1:"));
@@ -145,12 +165,18 @@ void PlayerInfo::render() {
     }
 
     for (int i = 0; i < _num_of_players; i++)
-        b[i]->draw();
+        b[i].draw();
+
     btnSubmit.drawButton();
 }
 
 
 void PlayerInfo::enter() {
-	render();
+    render();
+}
+
+PlayerInfo::~PlayerInfo()
+{
+    b.clear();
 }
 
