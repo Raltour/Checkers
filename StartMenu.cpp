@@ -2,7 +2,7 @@
  * @file StartMenu.cpp
  * @brief StartMenu函数的实现
  * @author 
- * @version 2.5.5
+ * @version 2.5.6
  */
 
 #include "StateMachine.h"
