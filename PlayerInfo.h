@@ -19,6 +19,8 @@ public:
 
 	PlayerInfo(StateMachine& _self_ref);
 
+	~PlayerInfo();
+
 
 	/**
 	 * @brief 利用输入信息更新游戏状态

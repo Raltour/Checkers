@@ -12,12 +12,6 @@
 extern int _num_of_players;
 
 
-PlayerInfo::PlayerInfo(StateMachine& _self_ref)
-    :GameState(_self_ref) {
-    b.clear();
-}
-
-
 bool PlayerInfo::isInit = false;
 
 PlayerInfo::PlayerInfo(StateMachine& _self_ref)
