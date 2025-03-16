@@ -36,8 +36,8 @@ void PlayerInfo::update(ExMessage& msg) {
             colors.clear();
 
             // 获取输入内容
-            for (auto& name : b)
-                names.push_back(name.getText());
+            for (auto name : b)
+                names.push_back(name->getText());
 
             if (_num_of_players == 2)
             {
@@ -68,19 +68,19 @@ void PlayerInfo::update(ExMessage& msg) {
         }
         // 检查输入框点击
         bool selected = false;
-        for (auto& p : b)
+        for (auto p : b)
         {
-            if (p.checkClick(x, y))
+            if (p->checkClick(x, y))
             {
                 selected = true;
-                p.isSelected = true;
+                p->isSelected = true;
             }
         }
 
         // 如果未点击任何输入框，取消所有选中状态
         if (!selected) {
-            for (auto& p : b)
-                p.isSelected = false;
+            for (auto p : b)
+                p->isSelected = false;
         }
         break;
     }
@@ -92,9 +92,9 @@ void PlayerInfo::update(ExMessage& msg) {
         // 获取当前选中的输入框
         TextBox* activeTB = nullptr;
 
-        for (auto& s : b)
-            if (s.isSelected) {
-                activeTB = &s;
+        for (auto s : b)
+            if (s->isSelected) {
+                activeTB = s;
 
                 if (activeTB) {
                     activeTB->keyInput(ch); // 处理键盘输入
@@ -107,14 +107,14 @@ void PlayerInfo::update(ExMessage& msg) {
     // 绘制所有控件
     cleardevice();
     for (auto& p : b)
-        p.draw();
+        p->draw();
 
     btnSubmit.drawButton();
 
     // 更新光标显示
-    for (auto& p : b)
-        if (p.isSelected)
-            p.updateCursor();
+    for (auto p : b)
+        if (p->isSelected)
+            p->updateCursor();
 
 
     Sleep(10);
@@ -165,7 +165,7 @@ void PlayerInfo::render() {
     }
 
     for (int i = 0; i < _num_of_players; i++)
-        b[i].draw();
+        b[i]->draw();
 
     btnSubmit.drawButton();
 }
