@@ -2,7 +2,7 @@
  * @file Chess.cpp
  * @brief Chess函数的具体实现
  * @author 
- * @version 2.5.4
+ * @version 2.5.5
  */
 
 #include "Chess.h"

@@ -7,7 +7,7 @@
  * 在这里初始化了状态机的唯一实例 `mach`，并在其内部保存对自身的引用。
  * 该引用会被传递给所有的 `GameState`，以便在游戏过程中随时进行状态切换和操作。
  *
- * @version 2.5.4
+ * @version 2.5.5
  */
 
 #include "StateMachine.h"
