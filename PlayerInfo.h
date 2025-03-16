@@ -54,4 +54,6 @@ private:
 
 	std::vector<TextBox*> b;
 	Button btnSubmit;
+
+	static bool isInit;
 };

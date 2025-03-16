@@ -71,21 +71,22 @@ void drawStartMenu() {
 void drawPlayerNum() {
     setbkcolor(RGB(173, 216, 230));
 
-    int btnWidth = 400;
-    int btnHeight = 100;
-    int centerX = 1500 / 2 - btnWidth / 2;
+    cleardevice();
+    //int btnWidth = 400;
+    //int btnHeight = 100;
+    //int centerX = 1500 / 2 - btnWidth / 2;
 
-    Button btn2(centerX, 250, btnWidth, btnHeight, "双人模式");
-    Button btn4(centerX, 400, btnWidth, btnHeight, "4人模式");
-    Button btn6(centerX, 550, btnWidth, btnHeight, "6人模式");
+    //Button btn2(centerX, 250, btnWidth, btnHeight, "双人模式");
+    //Button btn4(centerX, 400, btnWidth, btnHeight, "4人模式");
+    //Button btn6(centerX, 550, btnWidth, btnHeight, "6人模式");
 
-    settextcolor(WHITE);
-    settextstyle(90, 0, "宋体");
-    outtextxy((1500 - textwidth("模式选择")) / 2, 100, "模式选择");
+    //settextcolor(WHITE);
+    //settextstyle(90, 0, "宋体");
+    //outtextxy((1500 - textwidth("模式选择")) / 2, 100, "模式选择");
 
-    btn2.drawButton();
-    btn4.drawButton();
-    btn6.drawButton();
+    //btn2.drawButton();
+    //btn4.drawButton();
+    //btn6.drawButton();
 
 }
 
