@@ -4,7 +4,7 @@
  * @file Chess.h
  * @brief ÆåÅÌÖÐµÄÆå×Ó
  * @author ¶ÅÔÆ·É
- * @version 2.5.5
+ * @version 2.5.6
  */
 
 #include <string>

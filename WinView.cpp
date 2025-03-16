@@ -2,7 +2,7 @@
  * @file WinView.cpp
  * @brief WinView函数的实现
  * @author 
- * @version 2.5.5
+ * @version 2.5.6
  */
 
 #include "WinView.h"
