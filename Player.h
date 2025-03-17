@@ -10,7 +10,6 @@
  * 直接在该文件中实现所有功能
  * 
  * @author 李明泽
- * @version 2.5.7
  */
 
 #include "Chess.h"

@@ -4,7 +4,7 @@
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
  * @author 杜云飞
- * @version 2.5.7
+ * @version 2.5.8
  */
 
 #include "Chess.h"
@@ -63,7 +63,7 @@ public:
     参数: 棋子的指针   新的x，y坐标
     返回值: 能移动，则返回true；不能返回false
 */
-    bool isMoveChess(Chess* chess, int newX, int newY);
+    bool isMoveChess(Chess* chess, ExMessage& msg);
 
 
 	/**

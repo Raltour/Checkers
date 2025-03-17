@@ -13,7 +13,6 @@
  * 所有绘制（即游戏刷新新的一帧）都封装在各个界面的draw***函数中
  *
  * @author 吕建豪 李沐恒
- * @version 2.5.7
  */
 
 #include <easyx.h>
