@@ -2,7 +2,7 @@
  * @file Board.cpp
  * @brief Board函数的实现
  * @author 
- * @version 2.5.6
+ * @version 2.5.8
  */
 
 #include "Board.h"
@@ -46,23 +46,6 @@ void Board::hashIndex() {
 }
 
 
-//// 建立邻接表，存入六个方向的邻节点，然后通过哈希表查找索引，存入矩阵
-//void Board::buildadj() {
-//    for (int x = 0; x < m_width; x += m_cellSize) {
-//        for (int y = 0; y < m_height; y += m_cellSize) {
-//            int currentIndex = pos_map[x][y];
-//            for (int i = 0; i < 6; ++i) {
-//                int newX = x + dx[i];
-//                int newY = y + dy[i];
-//                if (isPositionInBoard(newX, newY)) {
-//                    int neighborIndex = pos_map[newX][newY];
-//                    adj[currentIndex].push_back(neighborIndex);
-//                }
-//            }
-//        }
-//    }
-//}
-
 // 建立邻接表，存入六个方向的邻节点，然后通过哈希表查找索引，存入矩阵
 void Board::buildadj() {
     for (int x = 0; x < m_width; x += m_cellSize) {
@@ -71,6 +54,9 @@ void Board::buildadj() {
             for (int i = 0; i < 6; ++i) {
                 int newX = x + dx[i];
                 int newY = y + dy[i];
+                if (newX > m_width) {
+                    break;
+                }
                 int neighborIndex = pos_map[newX][newY];
                 adj[currentIndex].push_back(neighborIndex);
             }

@@ -4,7 +4,7 @@
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
  * @author 杜云飞
- * @version 2.5.6
+ * @version 2.5.8
  */
 
 #include "Chess.h"
