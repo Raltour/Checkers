@@ -3,13 +3,14 @@
  * @brief 绘图函数的具体实现
  * 
  * @author 
- * @version 2.5.6
+ * @version 2.5.7
  */
 
 #include <string>
 #include "Render.h"
 #include "Board.h"
 
+extern int _num_of_players;
 
   /**
    * @brief 绘制棋子
@@ -21,7 +22,11 @@
    * @return 返回值的描述
    * @author 作者名字
    */
-void drawChess(){}
+void drawChess(int x, int y, COLORREF color)
+{
+    setfillcolor(color);
+    fillcircle(x, y, 12);
+}
 
 
 /**
@@ -33,7 +38,32 @@ void drawChess(){}
  * @param 参数2 描述参数2的作用
  * @author 作者名字
  */
-void drawHexagonGrid(){}
+void drawHexagonGrid(Board& b)
+{
+    for (int i = 4; i < 8; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = b.OFFSET_X + (j - i / 2.0) * b.m_cellSize;
+            int y = b.top_y + i * b.m_cellSize;
+
+            b.addChess(Chess::createChess(x, y, WHITE));
+            drawChess(x, y, WHITE);
+        }
+    }
+
+    for (int i = 4; i < 9; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = b.OFFSET_X + (j - i / 2.0) * b.m_cellSize;
+            int y = b.OFFSET_Y - i * b.m_cellSize;
+
+            b.addChess(Chess::createChess(x, y, WHITE));
+            drawChess(x, y, WHITE);
+        }
+    }
+}
 
 
 /*
@@ -44,17 +74,27 @@ void drawHexagonGrid(){}
 		  根据不同的颜色设置不同的状态
 	pos记录所有棋子的坐标
 
-
-
 	参数: p_x,p_y 为起始坐标   n 表示画几层  c 表示三角形是正的还是倒的
 	color颜色
 	返回值：无返回值
 */
-void drawTriangle(int p_x, int p_y, const char c, int n, COLORREF color){}
+void drawTriangle(Board& b, int p_x, int p_y, const char c, int n, COLORREF color)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = p_x + (j - i / 2.0) * b.m_cellSize;
+            int y = ((c == '+') ? (p_y + i * b.m_cellSize) : (p_y - i * b.m_cellSize));
+
+            b.addChess(Chess::createChess(x, y, color));
+            drawChess(x, y, color);
+        }
+    }
+}
 
 
 void drawStartMenu() {
-
     // 加载图片
     IMAGE img;
     loadimage(&img, "p1.jpg", 1600, 900);  // 加载图片，路径为 "p1.jpg"
@@ -73,69 +113,9 @@ void drawPlayerNum() {
     setbkcolor(RGB(173, 216, 230));
 
     cleardevice();
-    //int btnWidth = 400;
-    //int btnHeight = 100;
-    //int centerX = 1500 / 2 - btnWidth / 2;
-
-    //Button btn2(centerX, 250, btnWidth, btnHeight, "双人模式");
-    //Button btn4(centerX, 400, btnWidth, btnHeight, "4人模式");
-    //Button btn6(centerX, 550, btnWidth, btnHeight, "6人模式");
-
-    //settextcolor(WHITE);
-    //settextstyle(90, 0, "宋体");
-    //outtextxy((1500 - textwidth("模式选择")) / 2, 100, "模式选择");
-
-    //btn2.drawButton();
-    //btn4.drawButton();
-    //btn6.drawButton();
 
 }
 
-
-//// 绘制欢迎界面并添加动画效果
-//void drawWelcomeInterface(const TCHAR* id) {
-//    // 设置背景颜色为浅蓝色
-//    setbkcolor(RGB(173, 216, 230));
-//    cleardevice();
-//    // 设置文字颜色为黑色
-//    settextcolor(BLACK);
-//    // 增大字体大小
-//    settextstyle(70, 0, _T("宋体"));
-//    TCHAR message[50];
-//    _stprintf_s(message, _T("欢迎，%s！成功登录跳棋游戏！"), id);
-//    int len = _tcslen(message);
-//    TCHAR temp[50] = { 0 };
-//    for (int i = 0; i <= len; i++) {
-//        _tcsncpy_s(temp, message, i);
-//        temp[i] = '\0';
-//        setbkcolor(RGB(173, 216, 230));
-//        cleardevice();
-//        int textWidth = textwidth(temp);
-//        int textHeight = textheight(temp);
-//        int x = (1600 - textWidth) / 2;
-//        int y = (900 - textHeight) / 2;
-//
-//        outtextxy(x, y, temp);
-//        Sleep(100); // 控制动画速度
-//    }
-//}
-//
-//// 绘制登录界面
-//void drawLoginInterface() {
-//    // 设置背景颜色为浅蓝色
-//    setbkcolor(RGB(173, 216, 230));
-//    cleardevice();
-//    // 设置文字颜色为黑色
-//    settextcolor(BLACK);
-//    // 增大字体大小
-//    settextstyle(60, 0, _T("宋体"));
-//    // 获取文字宽度和高度
-//    int textWidth = textwidth(_T("请输入游戏 ID（用英文）:"));
-//    int textHeight = textheight(_T("请输入游戏 ID（用英文）:"));
-//    int x = (1500 - textWidth) / 2;
-//    int y = (1000 - textHeight) / 2 - 100;
-//    outtextxy(x, y, _T("请输入游戏 ID（用英文）:"));
-//}
 
 void drawPlayerInfo() {
     setbkcolor(RGB(173, 216, 230));
@@ -157,7 +137,62 @@ void drawPlayerInfo() {
  * @return 返回值的描述
  * @author 作者名字
  */
-void drawChechersGame(){}
+void drawChechersGame(Board& b)
+{
+    setbkcolor(RGB(173, 216, 230));
+    cleardevice();
+
+    drawHexagonGrid(b);
+
+    if (_num_of_players == 2)
+    {
+        //上
+        drawTriangle(b, b.OFFSET_X, b.top_y, '+', 4, RED);
+
+        //下
+        drawTriangle(b, b.OFFSET_X, b.OFFSET_Y, '-', 4, GREEN);
+    }
+
+
+    else if (_num_of_players == 4)
+    {
+        //上
+        drawTriangle(b, b.OFFSET_X, b.top_y, '+', 4, RED);
+
+        //下
+        drawTriangle(b, b.OFFSET_X, b.OFFSET_Y, '-', 4, GREEN);
+
+        //左上
+        drawTriangle(b, b.lt_x, b.lt_y, '-', 4, BLUE);
+
+        //右下
+        drawTriangle(b, b.rd_x, b.rd_y, '+', 4, YELLOW);
+    }
+    else if (_num_of_players == 6)
+    {
+        //上
+        drawTriangle(b, b.OFFSET_X, b.top_y, '+', 4, RED);
+
+        //下
+        drawTriangle(b, b.OFFSET_X, b.OFFSET_Y, '-', 4, GREEN);
+
+        //左上
+        drawTriangle(b, b.lt_x, b.lt_y, '-', 4, BLUE);
+
+        //右下
+        drawTriangle(b, b.rd_x, b.rd_y, '+', 4, YELLOW);
+
+        //左下
+        drawTriangle(b, b.ld_x, b.ld_y, '+', 4, YELLOW);
+
+        //右上
+        drawTriangle(b, b.rt_x, b.rt_y, '-', 4, BLUE);
+
+
+    }
+
+
+}
 
 
 /**

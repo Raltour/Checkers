@@ -4,7 +4,7 @@
  * @file Board.h
  * @brief 棋盘数据设计以及操作函数
  * @author 杜云飞
- * @version 2.5.6
+ * @version 2.5.7
  */
 
 #include "Chess.h"
@@ -104,34 +104,31 @@ public:
      */
     bool isChessWin(COLORREF color);
 
+    std::vector<bool> state;        //状态
+    //const int m_width = 1600;       //宽度 
+    //const int m_height = 900;      //高度      
+    int m_cellSize = 40;           //棋盘格子大小
+    //COLORREF m_backgroundColor = WHITE;   // 棋盘背景颜色
+    std::vector<int> dx = { 40, -40, 20, -20, 20, -20 }; // 方向向量
+    std::vector<int> dy = { 0, 0, -40, -40,40, 40 };
+    const int OFFSET_X = 800;   //顶部和底部三角形的x坐标
+    const int OFFSET_Y = 740;  //底部三角形的y坐标
+    const int top_y = 100;    //顶部三角形的y坐标
+    const int lt_x = 620;     //左上三角形的x坐标
+    const int lt_y = 380;     //左上三角形的y坐标
+    const int rt_x = 980;     //右上三角形的x坐标
+    const int rt_y = 380;     //右上三角形的y坐标
+    const int ld_x = 620;     //左下三角形的x坐标
+    const int ld_y = 460;     //左下三角形的y坐标
+    const int rd_x = 980;     //右下三角形的x坐标
+    const int rd_y = 460;     //右下三角形的y坐标
 
 private:
-
-	std::vector<Chess*> m_chesses;   //棋子数组
-	std::unordered_map<int, std::unordered_map<int, int>> pos_map;   //存储索引的哈希表
-	std::vector<std::vector<int>> adj;    //邻接表
-	std::unordered_set<int> visited;      //标记已访问
-	std::vector<int> path;      //路径
-	std::vector<bool> state;    //状态
-
-	const int m_width = 800;       //宽度 
-	const int m_height = 600;      //高度      
-	int m_cellSize = 30;           //棋盘格子大小
-	COLORREF m_backgroundColor = WHITE;   // 棋盘背景颜色
-	std::vector<int> dx = { 30, -30, 15, -15, 15, -15 }; // 方向向量
-	std::vector<int> dy = { 0, 0, -30, -30, 30, 30 };
-	const int OFFSET_X = 300;   //顶部和底部三角形的x坐标
-	const int OFFSET_Y = 590;  //底部三角形的y坐标
-	const int top_y = 110;    //顶部三角形的y坐标
-	const int lt_x = 165;     //左上三角形的x坐标
-	const int lt_y = 320;     //左上三角形的y坐标
-	const int rt_x = 435;     //右上三角形的x坐标
-	const int rt_y = 320;     //右上三角形的y坐标
-	const int ld_x = 165;     //左下三角形的x坐标
-	const int ld_y = 380;     //左下三角形的y坐标
-	const int rd_x = 435;     //右下三角形的x坐标
-	const int rd_y = 380;     //右下三角形的y坐标
-
+    std::vector<Chess*> m_chesses;   //棋子数组
+    std::unordered_map<int, std::unordered_map<int, int>> pos_map;   //存储索引的哈希表
+    std::vector<std::vector<int>> adj;    //邻接表
+    std::unordered_set<int> visited;      //标记已访问
+    std::vector<int> path;      //路径
 
 
     /*

@@ -13,12 +13,13 @@
  * 所有绘制（即游戏刷新新的一帧）都封装在各个界面的draw***函数中
  *
  * @author 吕建豪 李沐恒
- * @version 2.5.6
+ * @version 2.5.7
  */
 
 #include <easyx.h>
 #include "Button.h"
 
+class Board;
 
  /**
   * @brief 绘制棋子
@@ -28,7 +29,7 @@
   *
   * @author 作者名字
   */
-void drawChess();
+void drawChess(int x, int y, COLORREF color);
 
 
 /**
@@ -39,7 +40,7 @@ void drawChess();
  *
  * @author 作者名字
  */
-void drawHexagonGrid();
+void drawHexagonGrid(Board& b);
 
 
 /**
@@ -57,7 +58,7 @@ void drawHexagonGrid();
  * @param color 三角形的颜色
  * @author 作者名字
  */
-void drawTriangle(int p_x, int p_y, const char c, int n, COLORREF color);
+void drawTriangle(Board& b, int p_x, int p_y, const char c, int n, COLORREF color);
 
 
 /**
@@ -102,7 +103,7 @@ void drawPlayerInfo();
  *
  * @author 作者名字
  */
-void drawChechersGame();
+void drawChechersGame(Board& board);
 
 
 /**

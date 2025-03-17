@@ -2,7 +2,7 @@
  * @file CheckersGame.cpp
  * @brief PlayerNum函数的实现
  * @author 
- * @version 2.5.6
+ * @version 2.5.7
  */
 
 #include "StateMachine.h"
@@ -40,7 +40,7 @@ void CheckersGame::update(ExMessage& msg) {
 
 
 void CheckersGame::render() {
-	drawChechersGame();
+	drawChechersGame(*_chess_board);
 }
 
 
