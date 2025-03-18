@@ -65,6 +65,9 @@ void PlayerInfo::update(ExMessage& msg) {
                 Player::addNewPlayer(colors[i], names[i]);
             btnSubmit.removeColor();
             btnSubmit.drawButton();
+
+
+            _mach.changeStateTo("ChechersGame");
         }
         // ¼ì²éÊäÈë¿òµã»÷
         bool selected = false;

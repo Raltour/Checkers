@@ -8,11 +8,102 @@
 #include "Board.h"
 
 
-Board::Board() {
-    adj.resize(m_width * m_height / (m_cellSize * m_cellSize));
-    state.resize(m_width * m_height / (m_cellSize * m_cellSize), false);
-    hashIndex();
+Board::Board()
+{
+    for (int i = 4; i < 8; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = OFFSET_X + (j - i / 2.0) * m_cellSize;
+            int y = top_y + i * m_cellSize;
+
+            addChess(Chess::createChess(x, y, WHITE));
+        }
+    }
+
+    for (int i = 4; i < 9; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = OFFSET_X + (j - i / 2.0) * m_cellSize;
+            int y = OFFSET_Y - i * m_cellSize;
+
+            addChess(Chess::createChess(x, y, WHITE));
+        }
+    }
+
+    //上
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = OFFSET_X + (j - i / 2.0) * m_cellSize;
+            int y = top_y + i * m_cellSize;
+
+            addChess(Chess::createChess(x, y, WHITE));
+        }
+    }
+
+    //下
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = OFFSET_X + (j - i / 2.0) * m_cellSize;
+            int y = OFFSET_Y - i * m_cellSize;
+
+            addChess(Chess::createChess(x, y, WHITE));
+        }
+    }
+
+    //左上
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = lt_x + (j - i / 2.0) * m_cellSize;
+            int y = lt_y - i * m_cellSize;
+
+            addChess(Chess::createChess(x, y, WHITE));
+        }
+    }
+
+    //右下
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = rd_x + (j - i / 2.0) * m_cellSize;
+            int y = rd_y + i * m_cellSize;
+
+            addChess(Chess::createChess(x, y, WHITE));
+        }
+    }
+
+    //左下
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = ld_x + (j - i / 2.0) * m_cellSize;
+            int y = ld_y + i * m_cellSize;
+
+            addChess(Chess::createChess(x, y, WHITE));
+        }
+    }
+
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            int x = rt_x + (j - i / 2.0) * m_cellSize;
+            int y = rt_y - i * m_cellSize;
+
+            addChess(Chess::createChess(x, y, WHITE));
+        }
+    }
     buildadj();
+    hashIndex();
 }
 
 
@@ -26,39 +117,43 @@ Board::~Board() {
 }
 
 
+//void Board::addChess(Chess* chess) {
+//    m_chesses.push_back(chess);
+//    if (pos_map.find(chess->x()) != pos_map.end() &&
+//        pos_map[chess->x()].find(chess->y()) != pos_map[chess->x()].end()) {
+//        int index = pos_map[chess->x()][chess->y()];
+//        state[index] = true;
+//    }
+//}
 void Board::addChess(Chess* chess) {
-    m_chesses.push_back(chess);
-    if (pos_map.find(chess->x()) != pos_map.end() &&
-        pos_map[chess->x()].find(chess->y()) != pos_map[chess->x()].end()) {
-        int index = pos_map[chess->x()][chess->y()];
-        state[index] = true;
-    }
-}
 
+    state.push_back(0);
+    m_chesses.push_back(chess);
+}
 
 void Board::hashIndex() {
-    int index = 0;
-    for (int x = 0; x < m_width; x += m_cellSize) {
-        for (int y = 0; y < m_height; y += m_cellSize) {
-            pos_map[x][y] = index++;
-        }
+    int size = m_chesses.size();
+    for (int i = 0; i < size; i++)
+    {
+        pos_map[m_chesses[i]->x()][m_chesses[i]->y()] = i;
     }
 }
 
 
-// 建立邻接表，存入六个方向的邻节点，然后通过哈希表查找索引，存入矩阵
 void Board::buildadj() {
-    for (int x = 0; x < m_width; x += m_cellSize) {
-        for (int y = 0; y < m_height; y += m_cellSize) {
-            int currentIndex = pos_map[x][y];
-            for (int i = 0; i < 6; ++i) {
-                int newX = x + dx[i];
-                int newY = y + dy[i];
-                if (newX > m_width) {
-                    break;
-                }
-                int neighborIndex = pos_map[newX][newY];
-                adj[currentIndex].push_back(neighborIndex);
+    adj.resize(m_chesses.size());
+    for (int i = 0; i < m_chesses.size(); i++)
+    {
+        int x = m_chesses[i]->x();
+        int y = m_chesses[i]->y();
+        for (int j = 0; j < 6; j++)
+        {
+            int nx = x + dx[j];
+            int ny = y + dy[j];
+            if (pos_map.count(nx) && pos_map[nx].count(ny))
+            {
+                int neighbor = pos_map[nx][ny];
+                adj[i].push_back(neighbor);         //查询复杂度  o(1)
             }
         }
     }
