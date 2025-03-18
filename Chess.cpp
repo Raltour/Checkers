@@ -52,7 +52,7 @@ void Chess::setState(chessState state) {
 
 // 改变棋子的颜色
 void Chess::changeChess(COLORREF color) {
-    _old_color = _current_color;
+    //_old_color = _current_color;
     _current_color = color;
 }
 
@@ -66,4 +66,16 @@ void Chess::recoveryColor() {
 Chess::Chess(int x, int y, int chessSize, COLORREF currentColor)
     : _x(x), _y(y), _chess_size(chessSize), _old_color(currentColor),
     _current_color(currentColor), _is_selected(false) {
+}
+
+void Chess::highLight(bool state)
+{
+    this->_is_selected = state;
+    if (_is_selected) {
+        _old_color = _current_color; // 保存原颜色
+        _current_color = RGB(255, 52, 179);
+    }
+    else {
+        _current_color = _old_color; // 恢复原颜色
+    }
 }

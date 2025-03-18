@@ -88,7 +88,7 @@ public:
 	 * @return 玩家是否胜利
 	 * @author 作者名字
 	 */
-	bool moveChess(Chess *chess);//返回值：该玩家有没有取得胜利
+	bool moveChess(Chess *chess,ExMessage &msg);//返回值：该玩家有没有取得胜利
 
 
     /**
@@ -122,9 +122,9 @@ public:
     const int ld_y = 460;     //左下三角形的y坐标
     const int rd_x = 980;     //右下三角形的x坐标
     const int rd_y = 460;     //右下三角形的y坐标
-
-private:
     std::vector<Chess*> m_chesses;   //棋子数组
+private:
+    
     std::unordered_map<int, std::unordered_map<int, int>> pos_map;   //存储索引的哈希表
     std::vector<std::vector<int>> adj;    //邻接表
     std::unordered_set<int> visited;      //标记已访问

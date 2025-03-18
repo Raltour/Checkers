@@ -57,8 +57,8 @@ void drawHexagonGrid(Board& b);
  * @param color 三角形的颜色
  * @author 作者名字
  */
-void drawTriangle(Board& b, int p_x, int p_y, const char c, int n, COLORREF color);
-
+//void drawTriangle(Board& b, int p_x, int p_y, const char c, int n, COLORREF color);
+void drawTriangle(Board& b);
 
 /**
  * @brief 绘制开始菜单

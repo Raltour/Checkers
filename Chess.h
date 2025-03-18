@@ -107,6 +107,8 @@ public:
     */
     void recoveryColor();
 
+    void highLight(bool state);
+
 private:
 
     int _x, _y;//Æå×ÓµÄ×ø±ê

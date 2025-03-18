@@ -6,10 +6,9 @@
  */
 
 #include "Board.h"
+#include <iostream>
 
-
-Board::Board()
-{
+Board::Board() {
     for (int i = 4; i < 8; i++)
     {
         for (int j = 0; j <= i; j++)
@@ -17,7 +16,9 @@ Board::Board()
             int x = OFFSET_X + (j - i / 2.0) * m_cellSize;
             int y = top_y + i * m_cellSize;
 
+            
             addChess(Chess::createChess(x, y, WHITE));
+            state.push_back(false);
         }
     }
 
@@ -28,7 +29,9 @@ Board::Board()
             int x = OFFSET_X + (j - i / 2.0) * m_cellSize;
             int y = OFFSET_Y - i * m_cellSize;
 
+            
             addChess(Chess::createChess(x, y, WHITE));
+            state.push_back(false);
         }
     }
 
@@ -41,6 +44,7 @@ Board::Board()
             int y = top_y + i * m_cellSize;
 
             addChess(Chess::createChess(x, y, WHITE));
+            state.push_back(false);
         }
     }
 
@@ -52,7 +56,9 @@ Board::Board()
             int x = OFFSET_X + (j - i / 2.0) * m_cellSize;
             int y = OFFSET_Y - i * m_cellSize;
 
+           
             addChess(Chess::createChess(x, y, WHITE));
+            state.push_back(false);
         }
     }
 
@@ -64,7 +70,9 @@ Board::Board()
             int x = lt_x + (j - i / 2.0) * m_cellSize;
             int y = lt_y - i * m_cellSize;
 
+            
             addChess(Chess::createChess(x, y, WHITE));
+            state.push_back(false);
         }
     }
 
@@ -76,7 +84,9 @@ Board::Board()
             int x = rd_x + (j - i / 2.0) * m_cellSize;
             int y = rd_y + i * m_cellSize;
 
+            
             addChess(Chess::createChess(x, y, WHITE));
+            state.push_back(false);
         }
     }
 
@@ -89,6 +99,8 @@ Board::Board()
             int y = ld_y + i * m_cellSize;
 
             addChess(Chess::createChess(x, y, WHITE));
+            
+            state.push_back(false);
         }
     }
 
@@ -99,11 +111,15 @@ Board::Board()
             int x = rt_x + (j - i / 2.0) * m_cellSize;
             int y = rt_y - i * m_cellSize;
 
+           
             addChess(Chess::createChess(x, y, WHITE));
+            state.push_back(false);
         }
     }
-    buildadj();
+
     hashIndex();
+    buildadj();
+    
 }
 
 
@@ -117,19 +133,17 @@ Board::~Board() {
 }
 
 
-//void Board::addChess(Chess* chess) {
-//    m_chesses.push_back(chess);
-//    if (pos_map.find(chess->x()) != pos_map.end() &&
-//        pos_map[chess->x()].find(chess->y()) != pos_map[chess->x()].end()) {
-//        int index = pos_map[chess->x()][chess->y()];
-//        state[index] = true;
-//    }
-//}
 void Board::addChess(Chess* chess) {
-
-    state.push_back(0);
     m_chesses.push_back(chess);
+
+    //还没建好
+    /*if (pos_map.find(chess->x()) != pos_map.end() &&
+        pos_map[chess->x()].find(chess->y()) != pos_map[chess->x()].end()) {
+        int index = pos_map[chess->x()][chess->y()];
+        state[index] = false;
+    }*/
 }
+
 
 void Board::hashIndex() {
     int size = m_chesses.size();
@@ -140,19 +154,24 @@ void Board::hashIndex() {
 }
 
 
+// 建立邻接表，存入六个方向的邻节点，然后通过哈希表查找索引，存入矩阵
 void Board::buildadj() {
     adj.resize(m_chesses.size());
     for (int i = 0; i < m_chesses.size(); i++)
     {
         int x = m_chesses[i]->x();
         int y = m_chesses[i]->y();
+        //std::cout << x << " " << y << std::endl;
         for (int j = 0; j < 6; j++)
         {
             int nx = x + dx[j];
             int ny = y + dy[j];
+            //std::cout << j << std::endl;
             if (pos_map.count(nx) && pos_map[nx].count(ny))
             {
+
                 int neighbor = pos_map[nx][ny];
+                //std::cout << neighbor << std::endl;
                 adj[i].push_back(neighbor);         //查询复杂度  o(1)
             }
         }
@@ -161,19 +180,50 @@ void Board::buildadj() {
 
 
 bool Board::isMoveChess(Chess* chess, ExMessage& msg) {
-    findSingleJumpMove(chess);
-    getJumpMove(chess);
-    int x = NULL;
-    int y = NULL;
-    if (isHereAChess(msg)) {
-        x = isHereAChess(msg)->x();
-        y = isHereAChess(msg)->y();
+    //findSingleJumpMove(chess);
+    
+        getJumpMove(chess);
+
+        if (isHereAChess(msg))
+        {
+            int x = isHereAChess(msg)->x();
+            int y = isHereAChess(msg)->y();
+            if (path.size() >= 1)
+            {
+                //std::cout << path.size() << std::endl;
+                //true 表示玩家棋子
+                for (auto& p : path)
+                {
+                    if (p == pos_map[x][y])
+                    {
+                        //恢复颜色
+                        chess->recoveryColor();
+
+                        m_chesses[pos_map[x][y]]->changeChess(chess->color());
+                        
+                        //移动后原来棋子的状态
+                        state[pos_map[chess->x()][chess->y()]] = false;
+                       
+                       
+                        m_chesses[pos_map[chess->x()][chess->y()]]->changeChess(WHITE);
+                        //棋子移动到位置
+                        state[p] = true;
+
+                        //更新
+                        cleardevice();
+                        //std::cout << "wwww" << std::endl;
+                        drawChechersGame(*this);
+                        hashIndex();   // 更新坐标索引
+                        buildadj();    // 更新邻接表
+                        //drawChechersGame(*this);
+                        return true;
+                    }
+
+                }
+            }
+
+        return false;
     }
-    for (auto& p : path) {
-        if (p == pos_map[x][y])
-            return true;
-    }
-    return false;
 }
 
 
@@ -190,21 +240,54 @@ void Board::findSingleJumpMove(Chess* chess) {
 
 // 找到隔子跳跃和连续跳跃，同时使用路径数组存储，使用标记哈希表存储已访问的位置
 void Board::findDoybleJumpMove(Chess* chess, int step) {
-    int currentX = chess->x();
-    int currentY = chess->y();
-    for (int i = 0; i < 6; ++i) {
-        int middleX = currentX + dx[i] * step;
-        int middleY = currentY + dy[i] * step;
-        int targetX = currentX + dx[i] * step * 2;
-        int targetY = currentY + dy[i] * step * 2;
+    for (int dir = 0; dir < 6; dir++) {
+        int mid_x = chess->x() + dx[dir] * step;
+        int mid_y = chess->y() + dy[dir] * step;
 
-        int middleIndex = pos_map[middleX][middleY];
-        int targetIndex = pos_map[targetX][targetY];
-        if (state[middleIndex] && !state[targetIndex] && visited.find(targetIndex) == visited.end()) {
-            path.push_back(targetIndex);
-            visited.insert(targetIndex);
-            if (step < 5) {
-                findDoybleJumpMove(chess, step + 1);
+        int target_x = chess->x() + dx[dir] * step * 2;
+        int target_y = chess->y() + dy[dir] * step * 2;
+
+        bool isChess = true;
+        for (int i = 1; i < step; i++)
+        {
+            int check_x = chess->x() + dx[dir] * i;
+            int check_y = chess->y() + dy[dir] * i;
+            if (!pos_map.count(check_x) || !pos_map[check_x].count(check_y) || state[pos_map[check_x][check_y]])
+            {
+                isChess = false;
+                continue;
+            }
+        }
+
+        if (isChess)
+        {
+            for (int i = step + 1; i < (step << 1); i++)
+            {
+                int check_x = chess->x() + dx[dir] * i;
+                int check_y = chess->y() + dy[dir] * i;
+                if (!pos_map.count(check_x) || !pos_map[check_x].count(check_y) || state[pos_map[check_x][check_y]])
+                {
+                    isChess = false;
+                    continue;
+                }
+            }
+        }
+        // 检查中间节点是否存在且有棋子
+        if (isChess && pos_map.count(mid_x) && pos_map[mid_x].count(mid_y)) {
+            int midPos = pos_map[mid_x][mid_y];
+            if (state[midPos] != 0) { // 中间节点有棋子
+                // 检查目标节点是否存在且为空
+                if (pos_map.count(target_x) && pos_map[target_x].count(target_y)) {
+                    int targetPos = pos_map[target_x][target_y];
+                    if (state[targetPos] == 0 && visited.count(targetPos) == 0) { // 目标节点为空且未访问
+                        // 添加目标节点到路径
+                        path.push_back(targetPos);
+                        visited.insert(targetPos);
+                        // 递归检查是否可以进一步跳跃
+                        for (int i = 1; i <= 5; i++)
+                            findDoybleJumpMove(m_chesses[targetPos], i); // 从步长1开始递归
+                    }
+                }
             }
         }
     }
@@ -223,24 +306,24 @@ void Board::getJumpMove(Chess* chess) {
 
 
 Chess* Board::isHereAChess(ExMessage& msg) {
-    Chess* isHere = NULL;
-    if (peekmessage(&msg, EX_MOUSE)) {
-        if (msg.message == WM_LBUTTONDOWN) {
-            for (std::vector<Chess*>::iterator it = m_chesses.begin(); it != m_chesses.end(); ++it) {
-                int x = msg.x;
-                int y = msg.y;
-                Chess* chessPtr = *it;
-                if (x < chessPtr->x() + 12 && x > chessPtr->x() - 12 && y < chessPtr->y() + 12 && y > chessPtr->y() - 12) {
-                    Chess* isHere = chessPtr;
-                }
-            }
-        }
+    int x = msg.x;
+    int y = msg.y;
+
+    for (auto& p : m_chesses)
+    {
+        int p_x = p->x();
+        int p_y = p->y();
+        int m_x = p_x - x;
+        int m_y = p_y - y;
+        if (m_x * m_x + m_y * m_y <= 144)
+            return p;
     }
-    return isHere;
+    return nullptr;
 }
 
 
-bool Board::moveChess(Chess* chess) {
+bool Board::moveChess(Chess* chess, ExMessage& msg) {
+    
 	return false;
 }
 

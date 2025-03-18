@@ -66,7 +66,6 @@ void PlayerInfo::update(ExMessage& msg) {
             btnSubmit.removeColor();
             btnSubmit.drawButton();
 
-
             _mach.changeStateTo("ChechersGame");
         }
         // ¼ì²éÊäÈë¿òµã»÷

@@ -52,6 +52,8 @@ public:
 
 
 private:
+	Chess* _selected_chess = nullptr; // 记录当前选中的棋子
+	bool _is_chess_selected = false;  // 是否已选中棋子
 
 	//游戏棋盘的指针
 	Board* _chess_board;

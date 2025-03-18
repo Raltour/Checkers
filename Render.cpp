@@ -40,29 +40,6 @@ void drawChess(int x, int y, COLORREF color)
  */
 void drawHexagonGrid(Board& b)
 {
-    for (int i = 4; i < 8; i++)
-    {
-        for (int j = 0; j <= i; j++)
-        {
-            int x = b.OFFSET_X + (j - i / 2.0) * b.m_cellSize;
-            int y = b.top_y + i * b.m_cellSize;
-
-            b.addChess(Chess::createChess(x, y, WHITE));
-            drawChess(x, y, WHITE);
-        }
-    }
-
-    for (int i = 4; i < 9; i++)
-    {
-        for (int j = 0; j <= i; j++)
-        {
-            int x = b.OFFSET_X + (j - i / 2.0) * b.m_cellSize;
-            int y = b.OFFSET_Y - i * b.m_cellSize;
-
-            b.addChess(Chess::createChess(x, y, WHITE));
-            drawChess(x, y, WHITE);
-        }
-    }
 }
 
 
@@ -78,18 +55,11 @@ void drawHexagonGrid(Board& b)
 	color颜色
 	返回值：无返回值
 */
-void drawTriangle(Board& b, int p_x, int p_y, const char c, int n, COLORREF color)
+void drawTriangle(Board& b)
 {
-    for (int i = 0; i < n; i++)
+    for (auto& p : b.m_chesses)
     {
-        for (int j = 0; j <= i; j++)
-        {
-            int x = p_x + (j - i / 2.0) * b.m_cellSize;
-            int y = ((c == '+') ? (p_y + i * b.m_cellSize) : (p_y - i * b.m_cellSize));
-
-            b.addChess(Chess::createChess(x, y, color));
-            drawChess(x, y, color);
-        }
+        drawChess(p->x(), p->y(), p->color());
     }
 }
 
@@ -142,54 +112,7 @@ void drawChechersGame(Board& b)
     setbkcolor(RGB(173, 216, 230));
     cleardevice();
 
-    drawHexagonGrid(b);
-
-    if (_num_of_players == 2)
-    {
-        //上
-        drawTriangle(b, b.OFFSET_X, b.top_y, '+', 4, RED);
-
-        //下
-        drawTriangle(b, b.OFFSET_X, b.OFFSET_Y, '-', 4, GREEN);
-    }
-
-
-    else if (_num_of_players == 4)
-    {
-        //上
-        drawTriangle(b, b.OFFSET_X, b.top_y, '+', 4, RED);
-
-        //下
-        drawTriangle(b, b.OFFSET_X, b.OFFSET_Y, '-', 4, GREEN);
-
-        //左上
-        drawTriangle(b, b.lt_x, b.lt_y, '-', 4, BLUE);
-
-        //右下
-        drawTriangle(b, b.rd_x, b.rd_y, '+', 4, YELLOW);
-    }
-    else if (_num_of_players == 6)
-    {
-        //上
-        drawTriangle(b, b.OFFSET_X, b.top_y, '+', 4, RED);
-
-        //下
-        drawTriangle(b, b.OFFSET_X, b.OFFSET_Y, '-', 4, GREEN);
-
-        //左上
-        drawTriangle(b, b.lt_x, b.lt_y, '-', 4, BLUE);
-
-        //右下
-        drawTriangle(b, b.rd_x, b.rd_y, '+', 4, YELLOW);
-
-        //左下
-        drawTriangle(b, b.ld_x, b.ld_y, '+', 4, YELLOW);
-
-        //右上
-        drawTriangle(b, b.rt_x, b.rt_y, '-', 4, BLUE);
-
-
-    }
+    drawTriangle(b);
 
 
 }
